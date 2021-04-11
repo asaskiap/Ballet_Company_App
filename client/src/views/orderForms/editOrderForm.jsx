@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './orderForms.scss';
+import './../order.scss';
 import { editOrder } from './../../services/orders';
 
 class EditOrderForm extends Component {

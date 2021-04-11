@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './orderForms.scss';
+import './../order.scss';
 import { createOrder } from './../../services/orders';
 
 class OtherOrderForm extends Component {
@@ -101,6 +101,9 @@ class OtherOrderForm extends Component {
               <option value="white">White</option>
               <option value="brown">Brown</option>
             </select>
+          </section>
+          <section>
+            {' '}
             <label htmlFor="quantity-input">Quantity</label>
             <input
               id="quantity-input"
@@ -110,8 +113,6 @@ class OtherOrderForm extends Component {
               value={this.state.quantity}
               onChange={this.handleInputChange}
             />
-          </section>
-          <section>
             <label htmlFor="comments">Comments:</label>
             <textarea
               id="comments"
@@ -121,8 +122,6 @@ class OtherOrderForm extends Component {
               onChange={this.handleInputChange}
               value={this.state.comments}
             />
-          </section>
-          <section>
             <button>Submit Order</button>
           </section>
         </form>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './orderForms.scss';
+import './../order.scss';
 import { createOrder } from './../../services/orders';
 
 class PointeShoeOrderForm extends Component {
@@ -90,10 +90,6 @@ class PointeShoeOrderForm extends Component {
               <option value="butterfly">🦋</option>
               <option value="fish">🐟</option>
             </select>{' '}
-          </section>
-
-          <section>
-            {' '}
             <label htmlFor="size-input">Size</label>
             <input
               id="size-input"
@@ -115,6 +111,10 @@ class PointeShoeOrderForm extends Component {
               <option value="XX">XX</option>
               <option value="XXX">XXX</option>
             </select>
+          </section>
+
+          <section>
+            {' '}
             <label htmlFor="quantity-input">Quantity</label>
             <input
               id="quantity-input"
@@ -124,8 +124,6 @@ class PointeShoeOrderForm extends Component {
               value={this.state.quantity}
               onChange={this.handleInputChange}
             />
-          </section>
-          <section>
             <label htmlFor="comments">Comments:</label>
             <textarea
               id="comments"
@@ -135,9 +133,6 @@ class PointeShoeOrderForm extends Component {
               onChange={this.handleInputChange}
               value={this.state.comments}
             />
-          </section>
-
-          <section>
             <button>Submit Order</button>
           </section>
         </form>

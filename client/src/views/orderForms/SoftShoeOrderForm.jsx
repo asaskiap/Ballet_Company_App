@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './orderForms.scss';
+import './../order.scss';
 import { createOrder } from './../../services/orders';
 
 class SoftShoeOrderForm extends Component {
@@ -96,7 +96,7 @@ class SoftShoeOrderForm extends Component {
               onChange={this.handleInputChange}
             >
               <option value="">--Please choose a color--</option>
-              <option value="skin-color">Skin-Color</option>
+              <option value="suntan">Sun Tan</option>
               <option value="black">Black</option>
               <option value="white">White</option>
               <option value="brown">Brown</option>
@@ -122,8 +122,7 @@ class SoftShoeOrderForm extends Component {
               onChange={this.handleInputChange}
               value={this.state.comments}
             />
-          </section>
-          <section>
+
             <button>Submit Order</button>
           </section>
         </form>

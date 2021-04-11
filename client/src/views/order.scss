@@ -28,40 +28,6 @@
     }
 }
 
-.orderForm {
-    padding: 3em 0em;
-    background-color: rgb(221, 194, 158);
-    display: flex;
-    flex-direction: column;
-    h2 {
-        font-size: 3em;
-        letter-spacing: 3px;
-        margin: 1em;
-    }
-    section {
-        margin: 0em 2em;
-        padding-top: 0.2em;
-        background-color: lavender;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        input,
-        select,
-        textarea {
-            margin-right: auto;
-        }
-        button {
-            background-color: rgb(41, 41, 41);
-            color: whitesmoke;
-            font-size: 1.2em;
-            padding: 0.7em 1.1em;
-            margin: 1em auto;
-            border: 1px solid whitesmoke;
-            border-radius: 3em;
-        }
-    }
-}
-
 .colorExplanation {
     padding: 0.5em;
 }
@@ -124,6 +90,7 @@
 }
 
 .personalOrderList {
+    letter-spacing: 8px;
     margin: 3em;
     .personalOrderList_buttons {
         margin-left: auto;
@@ -138,5 +105,50 @@
         padding: 0.5em 0.8em;
         margin: 1em;
         border: 1px solid whitesmoke;
+        box-shadow: 4px 2px 2px gray;
+    }
+}
+
+.orderForm {
+    display: flex;
+    background-color: whitesmoke;
+    margin-top: 3em;
+    border-top: 2px solid rgb(41, 41, 41);
+    border-bottom: 4em solid rgb(41, 41, 41);
+    h2 {
+        font-size: 3.5em;
+        letter-spacing: 8px;
+        margin: 1em;
+    }
+    form {
+        display: flex;
+        section {
+            margin: 3em;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            label {
+                padding: 1em;
+                padding-right: 0.5em;
+            }
+            input,
+            select {
+                padding: 0.5em;
+                margin: 1em 0.5em;
+            }
+            textarea {
+                margin-top: 1em;
+            }
+            button {
+                background-color: rgb(41, 41, 41);
+                border-radius: 3em;
+                color: whitesmoke;
+                font-size: 1em;
+                padding: 0.5em;
+                margin: 3em auto;
+                border: 1px solid whitesmoke;
+                box-shadow: 4px 2px 2px gray;
+            }
+        }
     }
 }

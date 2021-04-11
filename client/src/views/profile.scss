@@ -10,7 +10,7 @@
         background-color: rgb(41, 41, 41);
         h2 {
             font-size: 5em;
-            letter-spacing: 5px;
+            letter-spacing: 8px;
             margin: 0em 3em;
         }
         .pictureInProfileView {
@@ -23,21 +23,12 @@
         margin: 3em;
         h2 {
             border-bottom: 1px solid gray;
+            letter-spacing: 8px;
             margin: 2em 0em;
         }
     }
-    .profileOrdersDisplay {
-        background-color: rgb(221, 194, 158);
-    }
-    .editProfileDisplay {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: rgb(71, 71, 71);
-    }
     form {
         display: flex;
-        flex-direction: column;
         label {
             padding: 0.1em 0.5em;
             max-width: 50%;
@@ -50,39 +41,56 @@
         }
     }
     button {
-        display: block;
-        margin: 1em 0.5em;
+        margin-left: 3em;
+        background-color: rgb(41, 41, 41);
+        min-width: fit-content;
+        color: whitesmoke;
         font-size: 1.2em;
         padding: 0.7em 1.1em;
-        background-color: lavender;
-        box-shadow: 2px 2px 2px rgb(255, 255, 255);
-        border: none;
-        max-width: 30%;
+        border: 1px solid whitesmoke;
+        box-shadow: 4px 2px 2px gray;
         border-radius: 3em;
+        margin-bottom: 4em;
     }
 }
 
 .editProfile {
-    margin: 3em;
-    padding: 2em;
-    text-align: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    background-color: lavender;
-    section {
-        margin: 1em 0em;
-    }
-    .editSubmitButton {
-        display: flex;
-        justify-content: center;
-        button {
-            background-color: rgb(41, 41, 41);
-            color: whitesmoke;
-            font-size: 1.2em;
-            padding: 0.7em 1.1em;
-            border: 1px solid whitesmoke;
-            border-radius: 3em;
+    background-color: whitesmoke;
+    border-top: 2px solid rgb(41, 41, 41);
+    border-bottom: 4em solid rgb(41, 41, 41);
+    h1 {
+        margin: 1em 3em;
+        font-size: 2.5em;
+        letter-spacing: 8px;
+        small {
+            font-size: 0.5em;
         }
+    }
+    form {
+        margin: 3em;
+        min-width: 100%;
+        display: flex;
+        flex-direction: row;
+    }
+    section {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        input,
+        select,
+        textarea {
+            min-width: max-content;
+        }
+    }
+    button {
+        margin: 1em 0em;
+        max-width: fit-content;
+        background-color: rgb(41, 41, 41);
+        font-size: 1em;
+        color: whitesmoke;
+        border: 1px solid whitesmoke;
+        border-radius: 3em;
     }
 }

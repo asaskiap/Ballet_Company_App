@@ -90,7 +90,9 @@ class EditProfile extends Component {
   render() {
     return (
       <div className="wrapper profile editProfile">
-        <h1>Edit Profile</h1>
+        <h1>
+          Edit Profile <small>and size preferences</small>
+        </h1>
 
         <form onSubmit={this.handleFormSubmission}>
           <section>
@@ -116,10 +118,8 @@ class EditProfile extends Component {
               onChange={this.handleInputChange}
             />
           </section>
-
           <section>
-            <h2>Size Preferences </h2>
-
+            {' '}
             <h4>Pointe Shoes</h4>
             <label htmlFor="pt-brand-select">Brand</label>
             <select
@@ -133,7 +133,6 @@ class EditProfile extends Component {
               <option value="bloch">Bloch</option>
               <option value="grishko">Grishko</option>
             </select>
-
             <label htmlFor="maker-select">Maker</label>
             <select
               name="pt_maker"
@@ -147,7 +146,6 @@ class EditProfile extends Component {
               <option value="butterfly">🦋</option>
               <option value="fish">🐟</option>
             </select>
-
             <label htmlFor="pt-size-input">Size</label>
             <input
               id="pt-size-input"
@@ -169,7 +167,8 @@ class EditProfile extends Component {
               <option value="XX">XX</option>
               <option value="XXX">XXX</option>
             </select>
-
+          </section>{' '}
+          <section>
             <h4>Soft Shoes </h4>
 
             <label htmlFor="ss_brand-select">Brand</label>
@@ -219,6 +218,9 @@ class EditProfile extends Component {
               <option value="white">White</option>
               <option value="brown">Brown</option>
             </select>
+          </section>
+          <section>
+            {' '}
             <h4>Other sizes</h4>
             <label htmlFor="dress-size-select">Dress Size</label>
             <select
@@ -232,7 +234,6 @@ class EditProfile extends Component {
               <option value="M">Medium</option>
               <option value="L">Large</option>
             </select>
-
             <label htmlFor="sock_size-select">Sock Size</label>
             <select
               name="sock_size"
@@ -245,7 +246,6 @@ class EditProfile extends Component {
               <option value="M">Medium</option>
               <option value="L">Large</option>
             </select>
-
             <label htmlFor="shoe-size-input">General Shoe Size</label>
             <input
               id="shoe-size-input"
@@ -255,9 +255,6 @@ class EditProfile extends Component {
               value={this.state.shoe_size}
               onChange={this.handleInputChange}
             />
-          </section>
-          <section className="editSubmitButton">
-            {' '}
             <button>Submit Changes</button>
           </section>
         </form>
