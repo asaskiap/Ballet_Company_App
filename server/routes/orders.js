@@ -4,13 +4,14 @@
 const { Router } = require('express');
 const EMAIL = 'alannapfeiffer@gmail.com';
 
+const routeGuard = require('./../middleware/route-guard');
 const bcryptjs = require('bcryptjs');
 const Order = require('./../models/order');
 const sendEmail = require('./../utilities/send-email');
 
 const router = new Router();
 
-router.get('/list', async(req, res, next) => {
+router.get('/list', routeGuard, async(req, res, next) => {
     try {
         const orderList = await Order.find({});
         res.json({ orderList });
@@ -20,7 +21,7 @@ router.get('/list', async(req, res, next) => {
     }
 });
 
-router.patch('/:id/status', async(req, res, next) => {
+router.patch('/:id/status', routeGuard, async(req, res, next) => {
     const { inProcess, received } = req.body;
     const id = req.params.id;
     try {
@@ -91,7 +92,7 @@ router.delete('/:id', async(req, res, next) => {
         next(error);
     }
 });
-router.post('/create', async(req, res, next) => {
+router.post('/create', routeGuard, async(req, res, next) => {
     const {
         item,
         brand,

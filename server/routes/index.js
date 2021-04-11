@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 'use strict';
 
 const express = require('express');
@@ -9,7 +10,7 @@ router.get('/', (req, res, next) => {
     res.json({ type: 'success', data: { title: 'Hello World' } });
 });
 
-router.get('/:id', async(req, res, next) => {
+router.get('/:id', routeGuard, async(req, res, next) => {
     try {
         const user = await User.findById(req.params.id);
         res.json({ individual: user });

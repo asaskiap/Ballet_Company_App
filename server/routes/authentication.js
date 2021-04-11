@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 'use strict';
 
 const { Router } = require('express');
@@ -38,6 +39,7 @@ router.post(
 
 router.post('/sign-in', (req, res, next) => {
     let user;
+    console.log(process.env.ALLOWED_CORS_ORIGIN, process.env.GMAIL_ADDRESS);
     const { email, password } = req.body;
     console.log(req.body);
     User.findOne({ email })
