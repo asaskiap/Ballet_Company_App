@@ -1,0 +1,88 @@
+.profile {
+    display: flex;
+    flex-direction: column;
+    header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 3em;
+        padding: 3em;
+        color: whitesmoke;
+        background-color: rgb(41, 41, 41);
+        h2 {
+            font-size: 5em;
+            letter-spacing: 5px;
+            margin: 0em 3em;
+        }
+        .pictureInProfileView {
+            max-width: 10em;
+            border-radius: 50%;
+            border: 5px solid whitesmoke;
+        }
+    }
+    .profileInfo {
+        margin: 3em;
+        h2 {
+            border-bottom: 1px solid gray;
+            margin: 2em 0em;
+        }
+    }
+    .profileOrdersDisplay {
+        background-color: rgb(221, 194, 158);
+    }
+    .editProfileDisplay {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgb(71, 71, 71);
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        label {
+            padding: 0.1em 0.5em;
+            max-width: 50%;
+        }
+        input,
+        select {
+            max-width: 50%;
+            padding: 0.5em;
+            margin: 1em 0.5em;
+        }
+    }
+    button {
+        display: block;
+        margin: 1em 0.5em;
+        font-size: 1.2em;
+        padding: 0.7em 1.1em;
+        background-color: lavender;
+        box-shadow: 2px 2px 2px rgb(255, 255, 255);
+        border: none;
+        max-width: 30%;
+        border-radius: 3em;
+    }
+}
+
+.editProfile {
+    margin: 3em;
+    padding: 2em;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: lavender;
+    section {
+        margin: 1em 0em;
+    }
+    .editSubmitButton {
+        display: flex;
+        justify-content: center;
+        button {
+            background-color: rgb(41, 41, 41);
+            color: whitesmoke;
+            font-size: 1.2em;
+            padding: 0.7em 1.1em;
+            border: 1px solid whitesmoke;
+            border-radius: 3em;
+        }
+    }
+}
