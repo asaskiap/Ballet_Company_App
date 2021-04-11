@@ -68,7 +68,7 @@ class EditProfile extends Component {
       sock_size,
       shoe_size
     } = this.state;
-    const updated_user = await updateProfile(
+    await updateProfile(
       {
         name,
         email,

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './orderForms.scss';
-import { createOrder, editOrder } from './../../services/orders';
+import { editOrder } from './../../services/orders';
 
 class EditOrderForm extends Component {
   state = {
