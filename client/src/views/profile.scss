@@ -52,6 +52,32 @@
         border-radius: 3em;
         margin-bottom: 4em;
     }
+    @media (max-width: 400px) {
+        header {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 3em;
+            padding: 3em;
+            h2 {
+                font-size: 2.5em;
+                letter-spacing: 2px;
+                margin: 0em 1em;
+            }
+            .pictureInProfileView {
+                max-width: 3em;
+            }
+        }
+        .profileInfo {
+            margin: 3em;
+            margin-bottom: 0em;
+            border-bottom: 1px solid gray;
+            h2 {
+                border-bottom: 1px solid gray;
+                letter-spacing: 2px;
+                margin: 2em 0em;
+            }
+        }
+    }
 }
 
 .editProfile {
@@ -92,5 +118,20 @@
         color: whitesmoke;
         border: 1px solid whitesmoke;
         border-radius: 3em;
+    }
+    @media (max-width: 400px) {
+        h1 {
+            font-size: 2em;
+            letter-spacing: 2px;
+            small {
+                font-size: 0.5em;
+            }
+        }
+        form {
+            margin: 0em;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
     }
 }

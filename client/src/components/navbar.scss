@@ -3,7 +3,12 @@
     display: flex;
     align-items: baseline;
     background-color: lavender;
-    .navLink {
+    .navHamburger img {
+        display: none;
+        margin: 0;
+    }
+    .navLink,
+    .navTitle {
         text-decoration: none;
         margin: 0.5em;
         padding: 0.4em 0.8em;
@@ -18,5 +23,29 @@
         font-family: 'Spartan', sans-serif;
         font-size: 1em;
         background-color: inherit;
+    }
+    @media (max-width: 400px) {
+        flex-direction: column;
+        .navLink {
+            display: none;
+        }
+        .navDisplay {
+            text-decoration: none;
+            margin: 0.5em;
+            padding: 0.4em 0.8em;
+            color: rgb(68, 43, 33);
+            border-radius: 7px;
+        }
+        .navHamburger img {
+            display: block;
+            margin: 0em 1em;
+        }
+        .navLinkContainer {
+            margin: 0em 2em;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            max-width: max-content;
+        }
     }
 }

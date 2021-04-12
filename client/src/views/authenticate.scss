@@ -6,6 +6,9 @@
         text-align: center;
         font-size: 2em;
         letter-spacing: 10px;
+        @media (max-width: 400px) {
+            font-size: 1.3em;
+        }
     }
     form {
         margin: 2em;
