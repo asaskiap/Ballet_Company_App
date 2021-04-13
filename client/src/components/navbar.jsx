@@ -45,6 +45,15 @@ class Navbar extends React.Component {
               >
                 Place an Order
               </Link>
+
+              <Link
+                to="/announcement"
+                className={` ${
+                  this.state.navDisplay ? 'navDisplay' : 'navLink'
+                }`}
+              >
+                Create an announcement
+              </Link>
               {this.props.user.isAdministrator && (
                 <Link
                   to="/list"

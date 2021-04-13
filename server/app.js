@@ -17,7 +17,9 @@ const baseRouter = require('./routes/index');
 const authenticationRouter = require('./routes/authentication');
 const ordersRouter = require('./routes/orders');
 const profileRouter = require('./routes/profile');
+const announcementRouter = require('./routes/announcement')
 
+//const emailService = require('./utilities/send-weekly-email');
 const app = express();
 
 //middleware
@@ -56,6 +58,9 @@ app.use('/', baseRouter);
 app.use('/authentication', authenticationRouter);
 app.use('/orders', ordersRouter);
 app.use('/profile', profileRouter);
+app.use('/announcement', announcementRouter);
+
+//emailService.sendWeeklyEmail();
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {

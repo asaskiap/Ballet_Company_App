@@ -89,6 +89,19 @@ class PointeShoeOrderForm extends Component {
               <option value="club">⚜</option>
               <option value="butterfly">🦋</option>
               <option value="fish">🐟</option>
+              <option value="maleteesecross">&#5869;</option>
+              <option value="star">&#8902;</option>
+              <option value="rhomboid">&#9674;</option>
+              <option value="triangle">	
+&#9651;</option>
+              <option value="clef">&#119070;</option>
+              <option value="L">L</option>
+              <option value="T">T</option>
+              <option value="Y">Y</option>
+              <option value="B">B</option>
+              <option value="N">N</option>
+
+              
             </select>{' '}
             <label htmlFor="size-input">Size</label>
             <input

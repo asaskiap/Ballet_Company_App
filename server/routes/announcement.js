@@ -1,0 +1,86 @@
+/* eslint-disable prettier/prettier */
+'use strict';
+
+const { Router } = require('express');
+
+const Announcement = require('./../models/announcement');
+const fileUploadMiddleware = require('./../middleware/file-upload');
+const routeGuard = require('./../middleware/route-guard');
+
+const router = new Router();
+
+// list announcements
+router.get('/load', routeGuard, async(req, res, next) => {
+    console.log('here');
+    try {
+        const announcements = await Announcement.find({});
+
+        res.json({ announcements });
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+});
+
+//create announcement
+router.post(
+    '/',
+    routeGuard,
+    fileUploadMiddleware.single('image'),
+    async(req, res, next) => {
+        let image;
+        if (req.file) {
+            image = req.file.path;
+        }
+        const { title, message, importantFlag } = req.body;
+        const creator = req.user;
+        const creator_name = req.user.name;
+        const creator_isAdmin = req.user.isAdministrator;
+
+        try {
+            const announcement = await Announcement.create({
+                title,
+                message,
+                importantFlag,
+                image,
+                creator,
+                creator_name,
+                creator_isAdmin
+            });
+            console.log('announcement created', announcement);
+            res.json({ announcement });
+        } catch (error) {
+            console.log(error);
+            next(error);
+        }
+    }
+);
+
+// edit announcement
+router.patch('/:id', routeGuard, async(req, res, next) => {
+    const { title, message, importantFlag } = req.body;
+    const id = req.params.id;
+    try {
+        const announcement = await Announcement.findByIdAndUpdate(
+            id, {
+                $set: { title, message, importantFlag }
+            }, { new: true }
+        );
+        res.json({ announcement });
+    } catch (error) {
+        next(error);
+    }
+});
+
+// delete announcement
+router.delete('/:id', routeGuard, async(req, res, next) => {
+    try {
+        console.log('deleting announcement in router');
+        await Announcement.findByIdAndDelete(req.params.id);
+        res.json({});
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+});
+module.exports = router;

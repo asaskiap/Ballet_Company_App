@@ -13,7 +13,7 @@ import SignUp from './views/SignUp';
 import Profile from './views/Profile';
 import OrderForm from './views/OrderForm';
 import OrderList from './views/OrderList';
-
+import AnnouncementForm from './views/AnnouncementForm';
 import './App.css';
 
 class App extends Component {
@@ -69,6 +69,13 @@ class App extends Component {
           <ProtectedRoute
             path="/order"
             component={OrderForm}
+            authorized={user}
+            redirect="/sign-in"
+            exact
+          />
+          <ProtectedRoute
+            path="/announcement"
+            component={AnnouncementForm}
             authorized={user}
             redirect="/sign-in"
             exact
