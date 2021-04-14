@@ -7,7 +7,11 @@ export const updateProfile = async(data, id) => {
 };
 
 export const loadPersonalOrders = async(id) => {
-    console.log('in api', id);
     const response = await api.get(`/profile/${id}/orders`);
     return response.data.orders;
+};
+
+export const loadPersonalAnnouncements = async(id) => {
+    const response = await api.get(`/profile/${id}/announcements`);
+    return response.data.announcements;
 };

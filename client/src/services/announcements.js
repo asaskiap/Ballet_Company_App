@@ -10,21 +10,21 @@ export const createAnnouncement = async(data) => {
     console.log('creating announcement in api', data);
     const response = await api.post('/announcement', data);
     const body = response.data;
-    console.log(body.announcement);
 
     return body.announcement;
 };
 
-// export const loadSingleOrder = async(id) => {
-//     console.log(id);
-//     const response = await api.get(`/orders/${id}`);
-//     const body = response.data;
-//     return body.singleOrder;
-// };
+export const loadSingleAnnouncement = async(id) => {
+    console.log(id);
+    const response = await api.get(`/announcement/${id}`);
+    const body = response.data;
+    console.log(body);
+    return body.announcement;
+};
 
 export const editAnnouncement = async(id, data) => {
     console.log(id);
-    const response = await api.patch(`/announcements/${id}`, data);
+    const response = await api.patch(`/announcement/${id}`, data);
     const body = response.data;
     console.log(body);
 };
@@ -39,6 +39,6 @@ export const statusUpdateOrder = async(data, id) => {
 
 export const deleteAnnouncement = async(id) => {
     console.log('deleting announcement', id);
-    await api.delete(`/announcements/${id}`);
+    await api.delete(`/announcement/${id}`);
     console.log('announcement deleted');
 };

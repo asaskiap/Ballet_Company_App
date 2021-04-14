@@ -84,7 +84,6 @@ router.patch('/:id', async(req, res, next) => {
 
 router.delete('/:id', async(req, res, next) => {
     try {
-        console.log('deleting in router');
         await Order.findByIdAndDelete(req.params.id);
         res.json({});
     } catch (error) {

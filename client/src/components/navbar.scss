@@ -2,7 +2,8 @@
     padding-top: 1em;
     display: flex;
     align-items: baseline;
-    background-color: lavender;
+    background-color: rgb(112, 156, 177);
+    letter-spacing: 2px;
     .navHamburger img {
         display: none;
         margin: 0;
@@ -12,12 +13,12 @@
         text-decoration: none;
         margin: 0.5em;
         padding: 0.4em 0.8em;
-        color: rgb(68, 43, 33);
+        color: whitesmoke;
         border-radius: 7px;
     }
     button {
         padding: 0.2em 0.8em;
-        color: rgb(68, 43, 33);
+        color: whitesmoke;
         margin: 0 1em;
         border: none;
         font-family: 'Spartan', sans-serif;
@@ -33,7 +34,7 @@
             text-decoration: none;
             margin: 0.5em;
             padding: 0.4em 0.8em;
-            color: rgb(68, 43, 33);
+            color: whitesmoke;
             border-radius: 7px;
         }
         .navHamburger img {

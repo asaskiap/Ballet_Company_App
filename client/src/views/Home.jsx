@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './home.scss';
+import './announcement.scss';
 import { loadAnnouncements } from '../services/announcements';
 
 export class Home extends Component {
@@ -23,7 +24,7 @@ export class Home extends Component {
 
         <section className="announcementView">
           <main>
-            <h1>This is the main section</h1>
+            <h1>Official Announcements</h1>
             {announcements &&
               announcements.map((a) => {
                 if (a.creator_isAdmin) {
@@ -38,7 +39,7 @@ export class Home extends Component {
               })}
           </main>
           <aside>
-            <h2>This is the aside</h2>
+            <h2>Private announcements</h2>
             {announcements &&
               announcements.map((a) => {
                 if (!a.creator_isAdmin) {

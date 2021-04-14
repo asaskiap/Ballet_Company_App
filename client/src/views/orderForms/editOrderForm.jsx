@@ -70,13 +70,13 @@ class EditOrderForm extends Component {
       quantity,
       comments
     });
-    console.log('order edited');
     this.props.onCompletedEdit();
   };
 
   render() {
     return (
       <div className="orderForm">
+        <h2>Edit Order</h2>
         <form onSubmit={this.handleOrderEdit}>
           <section>
             <label htmlFor="item-select">Choose an item:</label>

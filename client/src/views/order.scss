@@ -30,7 +30,8 @@
         margin: 1em 0.5em;
         border-radius: 3em;
         font-size: 1.1em;
-        background-color: lavender;
+        background-color: rgb(53, 84, 97);
+        color: whitesmoke;
         box-shadow: 2px 2px 2px grey;
         border: none;
     }
@@ -123,6 +124,10 @@
 .personalOrderList {
     letter-spacing: 8px;
     margin: 3em;
+    h2 {
+        border-bottom: 1px solid rgb(68, 68, 68);
+        margin-bottom: 1.5em;
+    }
     .personalOrderList_buttons {
         margin-left: auto;
         display: flex;

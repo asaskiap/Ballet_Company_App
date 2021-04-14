@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 'use strict';
 
 const express = require('express');
@@ -5,6 +6,7 @@ const router = new express.Router();
 const routeGuard = require('./../middleware/route-guard');
 const User = require('./../models/user');
 const Order = require('./../models/order');
+const Announcement = require('./../models/announcement');
 
 router.get('/:id', routeGuard, async(req, res, next) => {
     try {
@@ -20,6 +22,16 @@ router.get('/:id/orders', routeGuard, async(req, res, next) => {
         const user = await User.findById(req.params.id);
         const orders = await Order.find({ creator: user });
         res.json({ orders });
+    } catch (error) {
+        next(error);
+    }
+});
+
+router.get('/:id/announcements', routeGuard, async(req, res, next) => {
+    try {
+        const user = await User.findById(req.params.id);
+        const announcements = await Announcement.find({ creator: user });
+        res.json({ announcements });
     } catch (error) {
         next(error);
     }

@@ -11,7 +11,6 @@ const router = new Router();
 
 // list announcements
 router.get('/load', routeGuard, async(req, res, next) => {
-    console.log('here');
     try {
         const announcements = await Announcement.find({});
 
@@ -56,6 +55,29 @@ router.post(
     }
 );
 
+// load single announcement
+router.get('/:id', routeGuard, async(req, res, next) => {
+    try {
+        const announcement = await Announcement.findById(req.params.id);
+        res.json({ announcement });
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+});
+
+// delete announcement
+router.delete('/:id', routeGuard, async(req, res, next) => {
+    try {
+        console.log('deleting announcement in router');
+        await Announcement.findByIdAndDelete(req.params.id);
+        res.json({});
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+});
+
 // edit announcement
 router.patch('/:id', routeGuard, async(req, res, next) => {
     const { title, message, importantFlag } = req.body;
@@ -72,15 +94,4 @@ router.patch('/:id', routeGuard, async(req, res, next) => {
     }
 });
 
-// delete announcement
-router.delete('/:id', routeGuard, async(req, res, next) => {
-    try {
-        console.log('deleting announcement in router');
-        await Announcement.findByIdAndDelete(req.params.id);
-        res.json({});
-    } catch (error) {
-        console.log(error);
-        next(error);
-    }
-});
 module.exports = router;
