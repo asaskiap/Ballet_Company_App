@@ -6,6 +6,7 @@ class EditProfile extends Component {
   state = {
     name: '',
     email: '',
+    picture: '',
     //pointe shoes
     pt_brand: '',
     pt_maker: '',
@@ -27,10 +28,19 @@ class EditProfile extends Component {
     this.resetState(this.props.user);
   }
 
+  handleFileInputChange = (event) => {
+    const file = event.target.files[0];
+    const { name } = event.target;
+    this.setState({
+      [name]: file
+    });
+  };
+
   resetState = (user) => {
     this.setState({
       name: user.name,
       email: user.email,
+      picture: user.profilePicture,
       pt_brand: user.pt_brand,
       pt_size: user.pt_size,
       pt_maker: user.pt_maker,
@@ -52,10 +62,11 @@ class EditProfile extends Component {
   };
   handleFormSubmission = async (event) => {
     event.preventDefault();
-    this.props.toggleEditProfile();
+
     const {
       name,
       email,
+      picture,
       pt_brand,
       pt_maker,
       pt_size,
@@ -68,24 +79,35 @@ class EditProfile extends Component {
       sock_size,
       shoe_size
     } = this.state;
-    await updateProfile(
-      {
-        name,
-        email,
-        pt_brand,
-        pt_maker,
-        pt_size,
-        pt_width,
-        ss_brand,
-        ss_size,
-        ss_width,
-        ss_color,
-        dress_size,
-        sock_size,
-        shoe_size
-      },
-      this.props.user._id
-    );
+
+    const values = {
+      name,
+      email,
+      picture,
+      pt_brand,
+      pt_maker,
+      pt_size,
+      pt_width,
+      ss_brand,
+      ss_size,
+      ss_width,
+      ss_color,
+      dress_size,
+      sock_size,
+      shoe_size
+    };
+
+    // if you want to send file to the back end with the request body, we cannot send a simple object but it must be an object with the type FormData
+    const data = new FormData();
+
+    for (let key in values) {
+      const val = values[key];
+      data.append(key, val);
+    }
+
+    await updateProfile(data, this.props.user._id);
+
+    this.props.onCompletedProfileEdit();
   };
   render() {
     return (
@@ -117,6 +139,13 @@ class EditProfile extends Component {
               value={this.state.email}
               onChange={this.handleInputChange}
             />
+            <label htmlFor="profile-picture-input">Profile Picture</label>
+            <input
+              id="profile-picture-input"
+              type="file"
+              name="picture"
+              onChange={this.handleFileInputChange}
+            />
           </section>
           <section>
             {' '}
@@ -145,6 +174,16 @@ class EditProfile extends Component {
               <option value="club">⚜</option>
               <option value="butterfly">🦋</option>
               <option value="fish">🐟</option>
+              <option value="maleteesecross">&#5869;</option>
+              <option value="star">&#8902;</option>
+              <option value="rhomboid">&#9674;</option>
+              <option value="triangle">&#9651;</option>
+              <option value="clef">&#119070;</option>
+              <option value="L">L</option>
+              <option value="T">T</option>
+              <option value="Y">Y</option>
+              <option value="B">B</option>
+              <option value="N">N</option>
             </select>
             <label htmlFor="pt-size-input">Size</label>
             <input

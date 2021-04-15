@@ -70,12 +70,12 @@ class EditOrderForm extends Component {
       quantity,
       comments
     });
-    this.props.onCompletedEdit();
+    this.props.onCompletedOrderEdit();
   };
 
   render() {
     return (
-      <div className="orderForm">
+      <div className="orderForm editOrderForm">
         <h2>Edit Order</h2>
         <form onSubmit={this.handleOrderEdit}>
           <section>
@@ -175,9 +175,7 @@ class EditOrderForm extends Component {
               onChange={this.handleInputChange}
               value={this.state.comments}
             />
-          </section>
 
-          <section>
             <button>Submit Changes</button>
           </section>
         </form>

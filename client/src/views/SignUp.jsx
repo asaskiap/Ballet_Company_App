@@ -7,7 +7,8 @@ class SignUp extends Component {
     email: '',
     password: '',
     admin: false,
-    picture: ''
+    picture:
+      'https://res.cloudinary.com/dlrdquvjq/image/upload/v1618512395/e4leivcd2lhunmbkwu3q.png'
   };
 
   handleFormSubmission = async (event) => {
@@ -92,7 +93,6 @@ class SignUp extends Component {
             id="profile-picture-input"
             type="file"
             name="picture"
-            required
             onChange={this.handleFileInputChange}
           />
           <section className="adminInput">

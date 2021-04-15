@@ -16,8 +16,11 @@ router.post(
         let picture;
         if (req.file) {
             picture = req.file.path;
+        } else {
+            picture = req.body.picture;
         }
         const { name, email, password, admin } = req.body;
+
         try {
             const hash = await bcryptjs.hash(password, 10);
             const user = await User.create({

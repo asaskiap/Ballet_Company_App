@@ -31,13 +31,6 @@ export class Profile extends Component {
     displayEditAnnouncementForm: false
   };
 
-  toggleEditProfile = () => {
-    this.setState({
-      displayEditForm: !this.state.displayEditForm
-    });
-    console.log(this.state.displayEditForm);
-  };
-
   async componentDidMount() {
     //load user
     const user = await loadUser(this.props.match.params.id);
@@ -47,48 +40,14 @@ export class Profile extends Component {
     //load announcements
     this.loadAnnouncements();
   }
-  async loadOrders() {
-    const orders = await loadPersonalOrders(this.state.user._id);
+
+  // toggle Forms
+
+  toggleEditProfile = () => {
     this.setState({
-      orders
+      displayEditForm: !this.state.displayEditForm
     });
-  }
-
-  async loadAnnouncements() {
-    const announcements = await loadPersonalAnnouncements(this.state.user._id);
-    this.setState({
-      announcements
-    });
-  }
-
-  deleteOrder = async (id) => {
-    await deleteOrder(id);
-    await this.loadOrders();
-    alert('oder deleted');
-  };
-
-  deleteAnnouncement = async (id) => {
-    await deleteAnnouncement(id);
-    await this.loadAnnouncements();
-    alert('announcement deleted');
-  };
-
-  editOrder = async (id) => {
-    const orderToEdit = await loadSingleOrder(id);
-
-    this.setState({
-      orderToEdit: orderToEdit
-    });
-    this.toggleEditOrderForm();
-  };
-
-  editAnnouncement = async (id) => {
-    const announcementToEdit = await loadSingleAnnouncement(id);
-
-    this.setState({
-      announcementToEdit: announcementToEdit
-    });
-    this.toggleEditAnnouncementForm();
+    console.log(this.state.displayEditForm);
   };
 
   toggleEditOrderForm = () => {
@@ -103,6 +62,62 @@ export class Profile extends Component {
     });
   };
 
+  // load Elements for state
+  async loadUser() {
+    const user = await loadUser(this.props.match.params.id);
+    this.setState({ user });
+  }
+
+  async loadOrders() {
+    const orders = await loadPersonalOrders(this.state.user._id);
+    this.setState({
+      orders
+    });
+  }
+
+  async loadAnnouncements() {
+    const announcements = await loadPersonalAnnouncements(this.state.user._id);
+    this.setState({
+      announcements
+    });
+  }
+
+  // delete functions
+
+  deleteOrder = async (id) => {
+    await deleteOrder(id);
+    await this.loadOrders();
+    alert('oder deleted');
+  };
+
+  deleteAnnouncement = async (id) => {
+    await deleteAnnouncement(id);
+    await this.loadAnnouncements();
+    alert('announcement deleted');
+  };
+
+  // edit functions
+  editOrder = async (id) => {
+    const orderToEdit = await loadSingleOrder(id);
+    this.setState({
+      orderToEdit: orderToEdit
+    });
+    this.toggleEditOrderForm();
+  };
+
+  editAnnouncement = async (id) => {
+    const announcementToEdit = await loadSingleAnnouncement(id);
+    this.setState({
+      announcementToEdit: announcementToEdit
+    });
+    this.toggleEditAnnouncementForm();
+  };
+
+  // reset state and toggle forms on completed edit
+  onCompletedProfileEdit = () => {
+    this.loadUser();
+    this.toggleEditProfile();
+  };
   onCompletedOrderEdit = () => {
     this.loadOrders();
     this.toggleEditOrderForm();
@@ -111,6 +126,8 @@ export class Profile extends Component {
     this.loadAnnouncements();
     this.toggleEditAnnouncementForm();
   };
+
+  // display
   render() {
     return (
       <div className="wrapper profile">
@@ -168,10 +185,10 @@ export class Profile extends Component {
         )}
 
         <div className="editProfileDisplay">
-          <button onClick={this.toggleEditProfile}>Edit Preferences</button>{' '}
+          <button onClick={this.toggleEditProfile}>Edit Profile</button>{' '}
           {this.state.displayEditForm && (
             <EditProfile
-              toggleEditProfile={this.toggleEditProfile}
+              onCompletedProfileEdit={this.onCompletedProfileEdit}
               user={this.state.user}
             ></EditProfile>
           )}

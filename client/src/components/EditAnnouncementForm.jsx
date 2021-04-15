@@ -5,15 +5,17 @@ export class EditAnnouncementForm extends Component {
   state = {
     title: '',
     message: '',
-    importantFlag: false
+    importantFlag: false,
+    image: ''
   };
 
   componentDidMount() {
-    const { title, message, importantFlag } = this.props.announcement;
+    const { title, message, importantFlag, image } = this.props.announcement;
     this.setState({
       title,
       message,
-      importantFlag
+      importantFlag,
+      image
     });
   }
 
@@ -24,6 +26,13 @@ export class EditAnnouncementForm extends Component {
     });
   };
 
+  handleFileInputChange = (event) => {
+    const file = event.target.files[0];
+    const { name } = event.target;
+    this.setState({
+      [name]: file
+    });
+  };
   handleCheckboxInputChange = (event) => {
     const { name, checked } = event.target;
     this.setState({
@@ -33,13 +42,16 @@ export class EditAnnouncementForm extends Component {
 
   handleAnnouncementEdit = async (event) => {
     event.preventDefault();
-    const { title, message, importantFlag } = this.state;
+    const { title, message, importantFlag, image } = this.state;
+    console.log(image);
+    const data = new FormData();
+    data.append('title', title);
+    data.append('message', message);
+    data.append('importantFlag', importantFlag);
+    data.append('image', image);
 
-    await editAnnouncement(this.props.announcement._id, {
-      title,
-      message,
-      importantFlag
-    });
+    console.log(data);
+    await editAnnouncement(this.props.announcement._id, data);
 
     this.props.onCompletedEdit();
   };
@@ -70,6 +82,17 @@ export class EditAnnouncementForm extends Component {
             value={this.state.message}
             onChange={this.handleInputChange}
           />
+          <span>
+            <label htmlFor="image-input">
+              Image <i>(optional)</i>
+            </label>
+            <input
+              id="image-input"
+              type="file"
+              name="image"
+              onChange={this.handleFileInputChange}
+            />
+          </span>
           <span>
             <label htmlFor="importantFlag-input">Flag as important</label>
             <input

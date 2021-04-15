@@ -29,13 +29,28 @@ export class Home extends Component {
               announcements.map((a) => {
                 if (a.creator_isAdmin) {
                   return (
-                    <div key={a._id} className="singleAnnouncement main">
+                    <div
+                      key={a._id}
+                      className={`singleAnnouncement main ${
+                        a.importantFlag ? 'singleAnnouncement_important' : ''
+                      }`}
+                    >
                       <h4>{a.title}</h4>
                       <p>{a.message}</p>
                       {a.image && <img src={a.image} alt=""></img>}
+                      <small>
+                        {a.creator_name}{' '}
+                        <img
+                          src={a.creator_picture}
+                          alt=""
+                          height="50"
+                          className="profilePicture_singleAnnouncement"
+                        />{' '}
+                        | {a.editDate.split('T')[0]}
+                      </small>
                     </div>
                   );
-                }
+                } else return <></>;
               })}
           </main>
           <aside>
@@ -44,13 +59,28 @@ export class Home extends Component {
               announcements.map((a) => {
                 if (!a.creator_isAdmin) {
                   return (
-                    <div key={a._id} className="singleAnnouncement aside">
+                    <div
+                      key={a._id}
+                      className={`singleAnnouncement aside ${
+                        a.importantFlag ? 'singleAnnouncement_important' : ''
+                      }`}
+                    >
                       <h4>{a.title}</h4>
                       <p>{a.message}</p>
                       {a.image && <img src={a.image} alt="" width="100"></img>}
+                      <small>
+                        {a.creator_name}{' '}
+                        <img
+                          src={a.creator_picture}
+                          alt=""
+                          height="50"
+                          className="profilePicture_singleAnnouncement"
+                        />{' '}
+                        | {a.editDate.split('T')[0]}
+                      </small>
                     </div>
                   );
-                }
+                } else return <></>;
               })}
           </aside>
         </section>

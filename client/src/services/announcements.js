@@ -1,7 +1,6 @@
 import api from './api';
 
 export const loadAnnouncements = async() => {
-    console.log('getting announcements in api');
     const response = await api.get('/announcement/load');
     console.log(response.data);
     return response.data.announcements;

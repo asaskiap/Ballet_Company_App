@@ -30,6 +30,9 @@ const schema = new mongoose.Schema({
     creator_isAdmin: {
         type: Boolean,
         default: false
+    },
+    creator_picture: {
+        type: String
     }
 }, {
     timestamps: {

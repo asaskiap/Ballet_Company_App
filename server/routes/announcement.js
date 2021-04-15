@@ -13,6 +13,9 @@ const router = new Router();
 router.get('/load', routeGuard, async(req, res, next) => {
     try {
         const announcements = await Announcement.find({});
+        announcements.sort((a, b) =>
+            a.editDate > b.editDate ? -1 : b.editDate > a.editDate ? 1 : 0
+        );
 
         res.json({ announcements });
     } catch (error) {
@@ -35,6 +38,7 @@ router.post(
         const creator = req.user;
         const creator_name = req.user.name;
         const creator_isAdmin = req.user.isAdministrator;
+        const creator_picture = req.user.profilePicture;
 
         try {
             const announcement = await Announcement.create({
@@ -44,7 +48,8 @@ router.post(
                 image,
                 creator,
                 creator_name,
-                creator_isAdmin
+                creator_isAdmin,
+                creator_picture
             });
             console.log('announcement created', announcement);
             res.json({ announcement });
@@ -79,19 +84,31 @@ router.delete('/:id', routeGuard, async(req, res, next) => {
 });
 
 // edit announcement
-router.patch('/:id', routeGuard, async(req, res, next) => {
-    const { title, message, importantFlag } = req.body;
-    const id = req.params.id;
-    try {
-        const announcement = await Announcement.findByIdAndUpdate(
-            id, {
-                $set: { title, message, importantFlag }
-            }, { new: true }
-        );
-        res.json({ announcement });
-    } catch (error) {
-        next(error);
+router.patch(
+    '/:id',
+    routeGuard,
+    fileUploadMiddleware.single('image'),
+    async(req, res, next) => {
+        const { title, message, importantFlag } = req.body;
+        const id = req.params.id;
+        let image;
+        if (req.file) {
+            image = req.file.path;
+        } else {
+            image = req.body.image;
+        }
+        console.log('in router', image);
+        try {
+            const announcement = await Announcement.findByIdAndUpdate(
+                id, {
+                    $set: { title, message, importantFlag, image }
+                }, { new: true }
+            );
+            res.json({ announcement });
+        } catch (error) {
+            next(error);
+        }
     }
-});
+);
 
 module.exports = router;

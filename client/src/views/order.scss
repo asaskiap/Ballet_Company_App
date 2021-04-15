@@ -206,3 +206,36 @@
         }
     }
 }
+
+.editOrderForm {
+    h2 {
+        margin: 0.5em;
+    }
+    form {
+        display: flex;
+        section {
+            width: 100%;
+            margin: 1.5em;
+            display: flex;
+            flex-direction: column;
+            input,
+            select {
+                padding: 0.5em;
+                min-width: fit-content;
+            }
+            textarea {
+                margin-top: 1em;
+            }
+            button {
+                background-color: rgb(41, 41, 41);
+                border-radius: 3em;
+                color: whitesmoke;
+                font-size: 1em;
+                padding: 0.5em;
+                margin: 3em auto;
+                border: 1px solid whitesmoke;
+                box-shadow: 4px 2px 2px gray;
+            }
+        }
+    }
+}

@@ -12,21 +12,31 @@ class PersonalAnnouncements extends Component {
               <div key={announcement._id} className="single">
                 <h4>{announcement.title}</h4>
                 <p>{announcement.message}</p>
-                <p className="announcementButtons">
-                  <button
-                    onClick={() =>
-                      this.props.editAnnouncement(announcement._id)
-                    }
-                  >
-                    Edit
-                  </button>
-                  <button
-                    onClick={() =>
-                      this.props.deleteAnnouncement(announcement._id)
-                    }
-                  >
-                    Delete
-                  </button>
+
+                <p>
+                  <div>
+                    <img
+                      src={announcement.image}
+                      alt="announcement_image"
+                      height="100"
+                    />
+                  </div>
+                  <div className="announcementButtons">
+                    <button
+                      onClick={() =>
+                        this.props.editAnnouncement(announcement._id)
+                      }
+                    >
+                      Edit
+                    </button>
+                    <button
+                      onClick={() =>
+                        this.props.deleteAnnouncement(announcement._id)
+                      }
+                    >
+                      Delete
+                    </button>
+                  </div>
                 </p>
               </div>
             );

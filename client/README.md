@@ -168,3 +168,22 @@ OR: sizes, widths, colors and makers are arrays listing all available versions o
 OR: size, with and color (and maker) are referred to only in the order model and the item is independent of that and referred to by the order model as well
 
 - announcement model, create, edit, delete and display (for admin to display on home page main view and for dancers to display on home page aside view)
+
+## TODO as of 15.04.
+
+- why is order edit triggering retrun to home page?
+- edit profile picture and announcement picture without losing previous one ✅
+- default profile picture ✅
+- show profile picture with announcement ✅
+- pin guard for admin sign up
+- error handling
+- favicon
+
+- WEEKLY EMAIL (logic and styling)
+
+- clean up styling and code structure
+- style for mobile
+- add more photos to styling
+- finish adding pointe shoe makers
+
+(- item catalogue)
