@@ -14,14 +14,14 @@ class PersonalAnnouncements extends Component {
                 <p>{announcement.message}</p>
 
                 <p>
-                  <div>
+                  <section>
                     <img
                       src={announcement.image}
                       alt="announcement_image"
                       height="100"
                     />
-                  </div>
-                  <div className="announcementButtons">
+                  </section>
+                  <section className="announcementButtons">
                     <button
                       onClick={() =>
                         this.props.editAnnouncement(announcement._id)
@@ -36,7 +36,7 @@ class PersonalAnnouncements extends Component {
                     >
                       Delete
                     </button>
-                  </div>
+                  </section>
                 </p>
               </div>
             );

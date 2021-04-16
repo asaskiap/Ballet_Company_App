@@ -27,8 +27,8 @@ export class Home extends Component {
             <h1>Official Announcements</h1>
             {announcements &&
               announcements.map((a) => {
-                if (a.creator_isAdmin) {
-                  return (
+                return (
+                  a.creator_isAdmin && (
                     <div
                       key={a._id}
                       className={`singleAnnouncement main ${
@@ -49,16 +49,17 @@ export class Home extends Component {
                         | {a.editDate.split('T')[0]}
                       </small>
                     </div>
-                  );
-                } else return <></>;
+                  )
+                );
               })}
+            ;
           </main>
           <aside>
             <h2>Private announcements</h2>
             {announcements &&
               announcements.map((a) => {
-                if (!a.creator_isAdmin) {
-                  return (
+                return (
+                  !a.creator_isAdmin && (
                     <div
                       key={a._id}
                       className={`singleAnnouncement aside ${
@@ -79,8 +80,8 @@ export class Home extends Component {
                         | {a.editDate.split('T')[0]}
                       </small>
                     </div>
-                  );
-                } else return <></>;
+                  )
+                );
               })}
           </aside>
         </section>

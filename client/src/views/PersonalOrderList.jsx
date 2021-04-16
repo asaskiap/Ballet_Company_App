@@ -19,6 +19,7 @@ class PersonalOrderList extends Component {
         {this.props.orders.map((order) => {
           return (
             <p
+              key={order._id}
               className={`orderItem_inList ${
                 order.inProcess ? 'blue' : order.received ? 'green' : ''
               }`}

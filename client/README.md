@@ -171,19 +171,30 @@ OR: size, with and color (and maker) are referred to only in the order model and
 
 ## TODO as of 15.04.
 
-- why is order edit triggering retrun to home page?
 - edit profile picture and announcement picture without losing previous one ✅
 - default profile picture ✅
 - show profile picture with announcement ✅
+
+# Saturday
+
+- why is order edit triggering retrun to home page? ❗
+
+- clean up warnings so app can deploy 💥
+- WEEKLY EMAIL (logic and styling) 🔆
+
 - pin guard for admin sign up
 - error handling
 - favicon
 
-- WEEKLY EMAIL (logic and styling)
-
+- clean up database from old users etc
 - clean up styling and code structure
 - style for mobile
+
+# final touches
+
 - add more photos to styling
 - finish adding pointe shoe makers
+
+# nice to have
 
 (- item catalogue)
