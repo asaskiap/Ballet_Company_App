@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 'use strict';
 
 const nodemailer = require('nodemailer');
@@ -18,11 +19,7 @@ const sendEmail = async({ receiver, subject, body }) => {
         html: `
         <html>
           <head>
-            <style>
-              a {
-                background-color: yellow;
-              }
-            </style>
+            
           </head>
           <body>
             ${body}

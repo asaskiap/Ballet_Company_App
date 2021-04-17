@@ -1,0 +1,2 @@
+web: npm run start
+email: node server/utilities/send-weekly-email.js

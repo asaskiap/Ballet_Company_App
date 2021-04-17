@@ -1,60 +1,31 @@
+/* eslint-disable prettier/prettier */
 'use strict';
+const sendEmail = require('./../utilities/send-email');
+const RECEIVER = 'alannapfeiffer@gmail.com';
+const Order = require('./../models/order');
 
-
-const nodemailer = require('nodemailer');
-let cron = require('node-cron');
-
-const receiver = 'alannapfeiffer@gmail.com'; 
-const subject = 'BC - Weekly order summary'; 
-const Order = require('./../models/order')
-
-const transport = nodemailer.createTransport({
-    service: 'Gmail',
-    auth: {
-        user: process.env.GMAIL_ADDRESS,
-        pass: process.env.GMAIL_PASSWORD
-    }
-});
-
-const sendWeeklyEmail = cron.schedule('* * * * *', async() => {
-    const orders = await Order.find({}); 
-  // Send e-mail
-  const body =  `
-  <div>
-  <h1>Orders</h1>
-        <div>
-              
-              ${orders.map((order) => {
-                return (
-                   `<p><span >{order.creator_name}   ||  </span>
-                    <span >{order.item}     || </span>
-                    <span >{order.brand}    ||  </span>
-                    <span>{order.size} | {order.width}    ||  </span>
-                    <span >{order.quantity}   ||  </span>
-                    <span >{order.comments}   ||  </span></p>`
-                );
-              })}
-        </div>
-  `
-  
-  transport.sendMail({
-        from: process.env.GMAIL_ADDRESS,
-        to: receiver,
-        subject,
-        html: `
-        <html>
-          <head>
-          </head>
-          <body>
-            ${body}
-          </body>
-        </html>
-      `
+const sendWeeklyEmail = async() => {
+    const orders = await Order.find({});
+    console.log('orders', orders);
+    const EmailBody = orders.map((order) => {
+        return `<p key=${order._id}>
+        <span> From: ${order.creator_name}</span>
+        <span>Item: ${order.item}</span>
+        <span>Brand: ${order.brand}</span>
+        <span>
+          Size | Width : ${order.size} | {order.width}
+        </span>
+        <span>Quantity: ${order.quantity}</span>
+        <span>Comments: ${order.comments}</span>
+      </p>`;
     });
-  });
+    console.log(EmailBody);
 
+    await sendEmail({
+        receiver: RECEIVER,
+        subject: `Weekly order summary`,
+        body: EmailBody
+    });
+};
 
-
-module.export = {
-    cronService: cronService
-}
+sendWeeklyEmail();
