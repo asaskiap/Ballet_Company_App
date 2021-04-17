@@ -187,7 +187,7 @@ OR: size, with and color (and maker) are referred to only in the order model and
 
 - error handling
 
-- style for mobile
+- style for mobile ✅
 
 - why is order edit triggering retrun to home page? ❗
 
