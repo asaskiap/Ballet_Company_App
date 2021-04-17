@@ -49,8 +49,6 @@ const sendWeeklyEmail = async() => {
         .join('') +
         `</div>`;
 
-    console.log(EmailBody);
-
     try {
         await sendEmail({
             receiver: RECEIVER,
