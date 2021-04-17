@@ -8,11 +8,20 @@ class SignUp extends Component {
     password: '',
     admin: false,
     picture:
-      'https://res.cloudinary.com/dlrdquvjq/image/upload/v1618512395/e4leivcd2lhunmbkwu3q.png'
+      'https://res.cloudinary.com/dlrdquvjq/image/upload/v1618512395/e4leivcd2lhunmbkwu3q.png',
+    adminPinInput: '',
+    adminPin: 'Cab1Helm2Zen3Tilt'
   };
 
   handleFormSubmission = async (event) => {
     event.preventDefault();
+    // if admin is checked, see if pin matches
+    if (this.state.admin) {
+      if (!(this.state.adminPin === this.state.adminPinInput)) {
+        alert('Wrong Pin! You cannot sign up as ADMINISTRATOR. ');
+        return;
+      }
+    }
     const { name, email, password, admin, picture } = this.state;
     // if you want to send file to the back end with the request body, we cannot send a simple object but it must be an object with the type FormData
     const data = new FormData();
@@ -105,7 +114,14 @@ class SignUp extends Component {
               onChange={this.handleCheckboxInputChange}
             />
           </section>
-
+          <label htmlFor="admin-pin-input">Admin Pin </label>
+          <input
+            id="admin-pin-input"
+            type="text"
+            name="adminPinInput"
+            value={this.state.adminPinInput}
+            onChange={this.handleInputChange}
+          />
           <button>Sign Up</button>
         </form>
       </main>
