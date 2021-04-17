@@ -68,7 +68,10 @@ class App extends Component {
           />
           <ProtectedRoute
             path="/order"
-            component={OrderForm}
+            render={(props) => (
+              <OrderForm {...props} user={this.state.user}></OrderForm>
+            )}
+            //component={OrderForm}
             authorized={user}
             redirect="/sign-in"
             exact

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import OtherOrderForm from './orderForms/OtherOrderForm';
-import PointeShoeOrderForm from './orderForms/PointeShoeOrderForm';
-import SoftShoeOrderForm from './orderForms/SoftShoeOrderForm';
+import OtherOrderForm from './../components/orderForms/OtherOrderForm';
+import PointeShoeOrderForm from './../components/orderForms/PointeShoeOrderForm';
+import SoftShoeOrderForm from './../components/orderForms/SoftShoeOrderForm';
 import './order.scss';
 
 export class OrderForm extends Component {
@@ -56,13 +56,22 @@ export class OrderForm extends Component {
 
         <section className="displayOrderForm">
           {this.state.pointeShoeOrder && (
-            <PointeShoeOrderForm onOrderSubmission={this.onOrderSubmission} />
+            <PointeShoeOrderForm
+              onOrderSubmission={this.onOrderSubmission}
+              user={this.props.user}
+            />
           )}
           {this.state.softShoeOrder && (
-            <SoftShoeOrderForm onOrderSubmission={this.onOrderSubmission} />
+            <SoftShoeOrderForm
+              onOrderSubmission={this.onOrderSubmission}
+              user={this.props.user}
+            />
           )}
           {this.state.otherOrder && (
-            <OtherOrderForm onOrderSubmission={this.onOrderSubmission} />
+            <OtherOrderForm
+              onOrderSubmission={this.onOrderSubmission}
+              user={this.props.user}
+            />
           )}
         </section>
         {this.state.displayThankYouMessage && (

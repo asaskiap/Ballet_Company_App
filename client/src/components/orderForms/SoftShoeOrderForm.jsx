@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './../order.scss';
+import './../../views/order.scss';
 import { createOrder } from './../../services/orders';
 
 class SoftShoeOrderForm extends Component {
@@ -15,6 +15,15 @@ class SoftShoeOrderForm extends Component {
     comments: ''
   };
 
+  componentDidMount() {
+    const user = this.props.user;
+    this.setState({
+      brand: user.ss_brand,
+      size: user.ss_size,
+      color: user.ss_color,
+      width: user.ss_width
+    });
+  }
   handleInputChange = (event) => {
     const { name, value } = event.target;
     this.setState({
@@ -61,6 +70,7 @@ class SoftShoeOrderForm extends Component {
             <select
               name="brand"
               id="brand-select"
+              value={this.state.brand}
               onChange={this.handleInputChange}
             >
               <option value="">--Please choose a brand--</option>

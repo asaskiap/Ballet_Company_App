@@ -6,7 +6,7 @@
     letter-spacing: 2px;
     .navHamburger img {
         display: none;
-        margin: 0;
+        margin: 0em 1em;
     }
     .navLink,
     .navTitle {
@@ -30,6 +30,10 @@
         .navLink {
             display: none;
         }
+        .navTitle {
+            margin: 0;
+            padding: 0;
+        }
         .navDisplay {
             text-decoration: none;
             margin: 0.5em;
@@ -39,7 +43,7 @@
         }
         .navHamburger img {
             display: block;
-            margin: 0em 1em;
+            margin: 0em;
         }
         .navLinkContainer {
             margin: 0em 2em;

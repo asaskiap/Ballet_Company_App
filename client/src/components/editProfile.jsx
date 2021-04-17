@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './profile.scss';
-import { updateProfile } from './../services/profile';
+import './../views/profile.scss';
+import { updateProfile } from '../services/profile';
 
 class EditProfile extends Component {
   state = {

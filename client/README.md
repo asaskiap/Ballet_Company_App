@@ -174,27 +174,31 @@ OR: size, with and color (and maker) are referred to only in the order model and
 - edit profile picture and announcement picture without losing previous one ✅
 - default profile picture ✅
 - show profile picture with announcement ✅
+- clean up warnings so app can deploy ✅
+- clean up database from old users etc ✅
+- preload user preferences when placing an order✅
+- favicon ✅
+- clean up styling and code structure ✅
 
 # Saturday
 
-- why is order edit triggering retrun to home page? ❗
-
-- clean up warnings so app can deploy 💥
 - WEEKLY EMAIL (logic and styling) 🔆
-
 - pin guard for admin sign up
-- error handling
-- favicon
 
-- clean up database from old users etc
-- clean up styling and code structure
+- error handling
+
 - style for mobile
+
+- why is order edit triggering retrun to home page? ❗
 
 # final touches
 
 - add more photos to styling
 - finish adding pointe shoe makers
 
+- password reset change and/ or reset function
+
 # nice to have
 
-(- item catalogue)
+- custom order item
+  (- item catalogue)

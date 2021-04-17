@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './order.scss';
+import './../views/order.scss';
 
 class PersonalOrderList extends Component {
   render() {

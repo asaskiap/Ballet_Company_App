@@ -9,9 +9,9 @@ import {
   deleteAnnouncement,
   loadSingleAnnouncement
 } from './../services/announcements';
-import PersonalOrderList from './PersonalOrderList';
-import EditProfile from './editProfile';
-import EditOrderForm from './orderForms/editOrderForm';
+import PersonalOrderList from './../components/PersonalOrderList';
+import EditProfile from './../components/editProfile';
+import EditOrderForm from './../components/orderForms/editOrderForm';
 import PersonalAnnouncements from './../components/personalAnnouncements';
 import EditAnnouncementForm from './../components/EditAnnouncementForm';
 

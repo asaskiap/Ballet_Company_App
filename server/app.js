@@ -17,13 +17,13 @@ const baseRouter = require('./routes/index');
 const authenticationRouter = require('./routes/authentication');
 const ordersRouter = require('./routes/orders');
 const profileRouter = require('./routes/profile');
-const announcementRouter = require('./routes/announcement')
+const announcementRouter = require('./routes/announcement');
 
 //const emailService = require('./utilities/send-weekly-email');
 const app = express();
 
 //middleware
-app.use(serveFavicon(path.join(__dirname, 'public/images', 'favicon.ico')));
+app.use(serveFavicon(path.join(__dirname, 'public/images', 'ballerina.png')));
 app.use(logger('dev'));
 app.use(
     cors({

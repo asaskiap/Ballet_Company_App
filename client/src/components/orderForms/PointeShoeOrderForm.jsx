@@ -1,42 +1,26 @@
 import React, { Component } from 'react';
-import './../order.scss';
-import { editOrder } from './../../services/orders';
+import './../../views/order.scss';
+import { createOrder } from './../../services/orders';
 
-class EditOrderForm extends Component {
+class PointeShoeOrderForm extends Component {
   state = {
-    item: '',
+    item: 'pointe shoes',
     brand: '',
     maker: '',
     model: '',
-    size: '',
+    size: 0,
     width: '',
-    color: '',
     quantity: 0,
     comments: ''
   };
 
   componentDidMount() {
-    const {
-      item,
-      brand,
-      maker,
-      model,
-      size,
-      width,
-      color,
-      quantity,
-      comments
-    } = this.props.order;
+    const user = this.props.user;
     this.setState({
-      item,
-      brand,
-      maker,
-      model,
-      size,
-      width,
-      color,
-      quantity,
-      comments
+      brand: user.pt_brand,
+      maker: user.pt_maker,
+      size: user.pt_size,
+      width: user.pt_width
     });
   }
 
@@ -46,56 +30,41 @@ class EditOrderForm extends Component {
       [name]: value
     });
   };
-
-  handleOrderEdit = async () => {
+  handleOrder = async (event) => {
+    event.preventDefault();
     const {
       item,
+      color,
       brand,
       maker,
       model,
       size,
       width,
-      color,
       quantity,
       comments
     } = this.state;
-    await editOrder(this.props.order._id, {
+
+    await createOrder({
       item,
+      color,
       brand,
       maker,
       model,
       size,
       width,
-      color,
       quantity,
       comments
     });
-    this.props.onCompletedOrderEdit();
+    //reset state of parent component to make order form disappear
+    this.props.onOrderSubmission();
   };
 
   render() {
     return (
-      <div className="orderForm editOrderForm">
-        <h2>Edit Order</h2>
-        <form onSubmit={this.handleOrderEdit}>
+      <div className="orderForm">
+        <h2>Pointe Shoes </h2>
+        <form onSubmit={this.handleOrder}>
           <section>
-            <label htmlFor="item-select">Choose an item:</label>
-            <select
-              name="item"
-              id="item-select"
-              value={this.state.item}
-              onChange={this.handleInputChange}
-            >
-              <option value="">--Please choose an item--</option>
-              <option value="pointe shoes">Pointe Shoes</option>
-              <option value="soft shoes">Soft Shoes</option>
-              <option value="socks">Socks</option>
-              <option value="dance belt">Dance Belt</option>
-              <option value="ribbons">Ribbons</option>
-              <option value="elastic">Elastic</option>
-              <option value="shellack">Shellack</option>
-              <option value="kinesiotape">Kinesio Tape</option>
-            </select>
             <label htmlFor="brand-select">Brand</label>
             <select
               name="brand"
@@ -129,11 +98,17 @@ class EditOrderForm extends Component {
               <option value="club">⚜</option>
               <option value="butterfly">🦋</option>
               <option value="fish">🐟</option>
+              <option value="maleteesecross">&#5869;</option>
+              <option value="star">&#8902;</option>
+              <option value="rhomboid">&#9674;</option>
+              <option value="triangle">&#9651;</option>
+              <option value="clef">&#119070;</option>
+              <option value="L">L</option>
+              <option value="T">T</option>
+              <option value="Y">Y</option>
+              <option value="B">B</option>
+              <option value="N">N</option>
             </select>{' '}
-          </section>
-
-          <section>
-            {' '}
             <label htmlFor="size-input">Size</label>
             <input
               id="size-input"
@@ -155,6 +130,10 @@ class EditOrderForm extends Component {
               <option value="XX">XX</option>
               <option value="XXX">XXX</option>
             </select>
+          </section>
+
+          <section>
+            {' '}
             <label htmlFor="quantity-input">Quantity</label>
             <input
               id="quantity-input"
@@ -164,8 +143,6 @@ class EditOrderForm extends Component {
               value={this.state.quantity}
               onChange={this.handleInputChange}
             />
-          </section>
-          <section>
             <label htmlFor="comments">Comments:</label>
             <textarea
               id="comments"
@@ -175,8 +152,7 @@ class EditOrderForm extends Component {
               onChange={this.handleInputChange}
               value={this.state.comments}
             />
-
-            <button>Submit Changes</button>
+            <button>Submit Order</button>
           </section>
         </form>
       </div>
@@ -184,4 +160,4 @@ class EditOrderForm extends Component {
   }
 }
 
-export default EditOrderForm;
+export default PointeShoeOrderForm;

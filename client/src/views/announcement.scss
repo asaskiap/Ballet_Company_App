@@ -47,12 +47,15 @@
     @media (max-width: 400px) {
         header {
             h1 {
-                font-size: 3em;
+                font-size: 2em;
                 letter-spacing: 3px;
             }
         }
         form {
             flex-direction: column;
+            section {
+                max-width: 70%;
+            }
         }
     }
 }
@@ -135,6 +138,36 @@
             background-color: rgb(252, 241, 180);
         }
     }
+    @media (max-width: 400px) {
+        flex-direction: column;
+        main {
+            margin-right: 0em;
+            margin: 0 auto;
+            h1 {
+                letter-spacing: 2px;
+            }
+            .singleAnnouncement {
+                h4 {
+                    letter-spacing: 2px;
+                }
+                max-width: fit-content;
+            }
+        }
+        aside {
+            margin: 0 auto;
+            max-width: none;
+            h2 {
+                letter-spacing: 2px;
+            }
+            .singleAnnouncement {
+                margin-top: 1em;
+                h4 {
+                    letter-spacing: 2px;
+                }
+                max-width: fit-content;
+            }
+        }
+    }
 }
 
 .personalAnnouncements {
@@ -176,35 +209,62 @@
     }
 }
 
-.editAnnouncementForm {
-    h2 {
-        font-size: 2em;
-        margin-left: 3em;
-        letter-spacing: 7px;
-    }
-    border-top: 2px solid rgb(59, 59, 59);
-    border-bottom: 2em solid rgb(59, 59, 59);
-    margin: 0 auto 3em auto;
-    display: flex;
-    flex-direction: column;
-    background-color: whitesmoke;
-    box-shadow: 5px 2px 2px rgb(190, 190, 190);
-    form {
+.profile {
+    .editAnnouncementForm {
+        h2 {
+            font-size: 2em;
+            margin-left: 3em;
+            letter-spacing: 7px;
+        }
+        border-top: 2px solid rgb(59, 59, 59);
+        border-bottom: 2em solid rgb(59, 59, 59);
+        margin: 0 auto 3em auto;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        input,
-        textarea {
-            min-width: 50%;
-            margin-bottom: 2em;
-        }
-        span {
+        background-color: whitesmoke;
+        box-shadow: 5px 2px 2px rgb(190, 190, 190);
+        form {
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
+            align-items: center;
+            input,
+            textarea {
+                min-width: 50%;
+                margin-bottom: 2em;
+            }
+            span {
+                display: flex;
+                flex-direction: row;
+            }
+            button {
+                margin-top: 2em;
+                max-width: fit-content;
+            }
         }
-        button {
-            margin-top: 2em;
-            max-width: fit-content;
+        @media (max-width: 400px) {
+            align-items: center;
+            h2 {
+                margin: 0.3em 0em;
+                font-size: 1.5em;
+                letter-spacing: 1px;
+            }
+            form {
+                label {
+                    margin-top: 0.5em;
+                }
+                input,
+                textarea {
+                    margin: 0.5em 0em;
+                }
+                span {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+                button {
+                    margin: 0.3em 0em;
+                }
+            }
         }
     }
 }

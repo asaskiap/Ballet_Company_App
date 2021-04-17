@@ -3,7 +3,7 @@
     flex-direction: column;
     header {
         display: flex;
-        align-items: center;
+        justify-content: center;
         margin-bottom: 3em;
         padding: 3em;
         color: whitesmoke;
@@ -53,15 +53,15 @@
         margin-bottom: 4em;
     }
     @media (max-width: 400px) {
+        align-items: center;
         header {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 3em;
-            padding: 3em;
+            margin-bottom: 2em;
+            padding: 2em;
             h2 {
                 font-size: 2.5em;
                 letter-spacing: 2px;
-                margin: 0em 1em;
+                margin: 0em;
+                margin-right: 0.2em;
             }
             .pictureInProfileView {
                 max-width: 3em;
@@ -69,14 +69,22 @@
         }
         .profileInfo {
             margin: 3em;
-            margin-bottom: 0em;
-            border-bottom: 1px solid gray;
+            text-align: center;
             h2 {
                 border-bottom: 1px solid gray;
                 letter-spacing: 2px;
                 margin: 2em 0em;
             }
         }
+    }
+}
+
+.editProfileDisplay {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    button {
+        margin: 1em 0em;
     }
 }
 
@@ -87,7 +95,7 @@
     border-top: 2px solid rgb(41, 41, 41);
     border-bottom: 4em solid rgb(41, 41, 41);
     h1 {
-        margin: 1em 3em;
+        margin: 1em 2em;
         font-size: 2.5em;
         letter-spacing: 8px;
         small {
@@ -104,6 +112,7 @@
         flex-grow: 1;
         display: flex;
         flex-direction: column;
+        align-items: center;
         input,
         select,
         textarea {
