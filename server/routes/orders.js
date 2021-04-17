@@ -5,7 +5,6 @@ const { Router } = require('express');
 const EMAIL = 'alannapfeiffer@gmail.com';
 
 const routeGuard = require('./../middleware/route-guard');
-const bcryptjs = require('bcryptjs');
 const Order = require('./../models/order');
 const sendEmail = require('./../utilities/send-email');
 
