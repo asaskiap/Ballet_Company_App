@@ -10,6 +10,25 @@ router.get('/', (req, res, next) => {
     res.json({ type: 'success', data: { title: 'Hello World' } });
 });
 
+// load list of all users
+router.get('/userlist', routeGuard, async(req, res, next) => {
+    try {
+        const users = await User.find({});
+        users.sort((a, b) =>
+            a.name.toUpperCase() > b.name.toUpperCase() ?
+            1 :
+            b.name.toUpperCase() > a.name.toUpperCase() ?
+            -1 :
+            0
+        );
+
+        res.json({ users });
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+});
+
 router.get('/:id', routeGuard, async(req, res, next) => {
     try {
         const user = await User.findById(req.params.id);

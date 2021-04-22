@@ -15,6 +15,7 @@ import OrderForm from './views/OrderForm';
 import OrderList from './views/OrderList';
 import AnnouncementForm from './views/AnnouncementForm';
 import './App.css';
+import UserList from './views/UserList';
 
 class App extends Component {
   state = {
@@ -91,6 +92,13 @@ class App extends Component {
           <ProtectedRoute
             path="/list"
             component={OrderList}
+            authorized={user && user.isAdministrator}
+            redirect="/sign-in"
+            exact
+          />
+          <ProtectedRoute
+            path="/userlist"
+            component={UserList}
             authorized={user && user.isAdministrator}
             redirect="/sign-in"
             exact

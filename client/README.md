@@ -189,14 +189,13 @@ OR: size, with and color (and maker) are referred to only in the order model and
 - focus forms on appearance ✅
 - hover for buttons ✅
 - mobile styling adjustments for comments ✅
+- edit & delete for comments ✅
+
+- create user size preference overview ✅
 
 - comments for announcements ✅
 
 # TO DO
-
-- edit & delete for comments
-
-- why is order edit triggering retrun to home page? ❗
 
 - finish adding pointe shoe makers
 - password change and/ or reset function

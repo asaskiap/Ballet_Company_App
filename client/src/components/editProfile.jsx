@@ -10,6 +10,7 @@ class EditProfile extends Component {
     //pointe shoes
     pt_brand: '',
     pt_maker: '',
+    pt_model: '',
     pt_size: 0,
     pt_width: '',
     //soft shoes
@@ -44,6 +45,7 @@ class EditProfile extends Component {
       pt_brand: user.pt_brand,
       pt_size: user.pt_size,
       pt_maker: user.pt_maker,
+      pt_model: user.pt_model,
       pt_width: user.pt_width,
       ss_brand: user.ss_brand,
       ss_size: user.ss_size,
@@ -69,6 +71,7 @@ class EditProfile extends Component {
       picture,
       pt_brand,
       pt_maker,
+      pt_model,
       pt_size,
       pt_width,
       ss_brand,
@@ -86,6 +89,7 @@ class EditProfile extends Component {
       picture,
       pt_brand,
       pt_maker,
+      pt_model,
       pt_size,
       pt_width,
       ss_brand,
@@ -163,6 +167,15 @@ class EditProfile extends Component {
               <option value="bloch">Bloch</option>
               <option value="grishko">Grishko</option>
             </select>
+            <label htmlFor="model-input">Model</label>
+            <input
+              id="model-input"
+              type="string"
+              placeholder="model name"
+              name="pt_model"
+              value={this.state.pt_model}
+              onChange={this.handleInputChange}
+            />
             <label htmlFor="maker-select">Maker</label>
             <select
               name="pt_maker"

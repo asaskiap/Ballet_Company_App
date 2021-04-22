@@ -156,6 +156,7 @@ export class Profile extends Component {
                   {' '}
                   <span>Brand: {this.state.user.pt_brand} | </span>
                   <span>Maker: {this.state.user.pt_maker} | </span>
+                  <span>Model: {this.state.user.pt_model} | </span>
                   <span>
                     Size: {this.state.user.pt_size} - {this.state.user.pt_width}{' '}
                     |

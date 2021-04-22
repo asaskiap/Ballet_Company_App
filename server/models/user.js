@@ -33,6 +33,10 @@ const schema = new mongoose.Schema({
         enum: MAKERS,
         default: 'not specified'
     },
+    pt_model: {
+        type: String,
+        default: 'not specified'
+    },
     pt_size: {
         type: Number,
         default: 0

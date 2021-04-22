@@ -51,7 +51,6 @@ router.post(
                 creator_isAdmin,
                 creator_picture
             });
-            console.log('announcement created', announcement);
             res.json({ announcement });
         } catch (error) {
             console.log(error);

@@ -37,7 +37,6 @@ router.patch('/:id/status', routeGuard, async(req, res, next) => {
 
 router.get('/:id', async(req, res, next) => {
     try {
-        console.log('loading single order in router');
         const singleOrder = await Order.findById(req.params.id);
         res.json({ singleOrder });
     } catch (error) {

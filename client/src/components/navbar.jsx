@@ -65,6 +65,16 @@ class Navbar extends React.Component {
                   See all Orders
                 </Link>
               )}
+              {this.props.user.isAdministrator && (
+                <Link
+                  to="/userlist"
+                  className={` ${
+                    this.state.navDisplay ? 'navDisplay' : 'navLink'
+                  }`}
+                >
+                  Users' size list
+                </Link>
+              )}
 
               <button
                 onClick={this.props.onSignOut}
