@@ -41,37 +41,50 @@ export class OrderForm extends Component {
       <div className="wrapper orderPage">
         <header>
           <h1>Place an Order...</h1>
+          <section className="orderButtons">
+            <a href="#FormFocus">
+              <button onClick={() => this.displayOrderForm('pointeShoeOrder')}>
+                Order Pointe Shoes
+              </button>
+            </a>
+            <a href="#FormFocus">
+              <button onClick={() => this.displayOrderForm('softShoeOrder')}>
+                Order Soft Shoes
+              </button>
+            </a>
+            <a href="#FormFocus">
+              <button onClick={() => this.displayOrderForm('otherOrder')}>
+                Other Orders
+              </button>
+            </a>
+          </section>
         </header>
-        <section className="orderButtons">
-          <button onClick={() => this.displayOrderForm('pointeShoeOrder')}>
-            Order Pointe Shoes
-          </button>
-          <button onClick={() => this.displayOrderForm('softShoeOrder')}>
-            Order Soft Shoes
-          </button>
-          <button onClick={() => this.displayOrderForm('otherOrder')}>
-            Other Orders
-          </button>
-        </section>
 
         <section className="displayOrderForm">
           {this.state.pointeShoeOrder && (
-            <PointeShoeOrderForm
-              onOrderSubmission={this.onOrderSubmission}
-              user={this.props.user}
-            />
+            <div id="FormFocus">
+              {' '}
+              <PointeShoeOrderForm
+                onOrderSubmission={this.onOrderSubmission}
+                user={this.props.user}
+              />
+            </div>
           )}
           {this.state.softShoeOrder && (
-            <SoftShoeOrderForm
-              onOrderSubmission={this.onOrderSubmission}
-              user={this.props.user}
-            />
+            <div id="FormFocus">
+              <SoftShoeOrderForm
+                onOrderSubmission={this.onOrderSubmission}
+                user={this.props.user}
+              />
+            </div>
           )}
           {this.state.otherOrder && (
-            <OtherOrderForm
-              onOrderSubmission={this.onOrderSubmission}
-              user={this.props.user}
-            />
+            <div id="FormFocus">
+              <OtherOrderForm
+                onOrderSubmission={this.onOrderSubmission}
+                user={this.props.user}
+              />
+            </div>
           )}
         </section>
         {this.state.displayThankYouMessage && (

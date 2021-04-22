@@ -118,6 +118,7 @@ class EditProfile extends Component {
 
         <form onSubmit={this.handleFormSubmission}>
           <section>
+            <h4>Profile Info</h4>
             <label htmlFor="name-input">Name</label>
             <input
               id="name-input"
@@ -260,7 +261,7 @@ class EditProfile extends Component {
           </section>
           <section>
             {' '}
-            <h4>Other sizes</h4>
+            <h4>Other</h4>
             <label htmlFor="dress-size-select">Dress Size</label>
             <select
               name="dress_size"

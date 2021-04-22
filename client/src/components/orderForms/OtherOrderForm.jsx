@@ -67,13 +67,16 @@ class OtherOrderForm extends Component {
               <option value="dance belt">Dance Belt</option>
               <option value="ribbons">Ribbons</option>
               <option value="elastic">Elastic</option>
-
               <option value="shellack">Shellack</option>
-
               <option value="kinesiotape">Kinesio Tape</option>
             </select>
 
-            <label htmlFor="size-select">Size</label>
+            <label htmlFor="size-select">
+              Size{' '}
+              <small>
+                <i>if applicable</i>
+              </small>
+            </label>
             <select
               id="size-select"
               type="string"
@@ -84,11 +87,15 @@ class OtherOrderForm extends Component {
             >
               <option value="S">Small</option>
               <option value="M">Medium</option>
-
               <option value="L">Large</option>
             </select>
 
-            <label htmlFor="color-select">Color</label>
+            <label htmlFor="color-select">
+              Color{' '}
+              <small>
+                <i>if applicable</i>
+              </small>
+            </label>
             <select
               name="color"
               id="color-select"
@@ -96,7 +103,7 @@ class OtherOrderForm extends Component {
               onChange={this.handleInputChange}
             >
               <option value="">--Please choose a color--</option>
-              <option value="skin-color">Skin-Color</option>
+              <option value="sun-tan">Skin-Color</option>
               <option value="black">Black</option>
               <option value="white">White</option>
               <option value="brown">Brown</option>

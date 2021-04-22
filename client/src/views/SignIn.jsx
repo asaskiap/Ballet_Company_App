@@ -12,6 +12,10 @@ class SignIn extends Component {
     event.preventDefault();
     const { email, password } = this.state;
     const user = await signIn({ email, password });
+    if (!user) {
+      alert('wrong username or password! ');
+      return;
+    }
     this.props.onUserChange(user);
   };
 

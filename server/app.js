@@ -18,6 +18,7 @@ const authenticationRouter = require('./routes/authentication');
 const ordersRouter = require('./routes/orders');
 const profileRouter = require('./routes/profile');
 const announcementRouter = require('./routes/announcement');
+const commentsRouter = require('./routes/comments');
 
 //const emailService = require('./utilities/send-weekly-email');
 const app = express();
@@ -59,6 +60,7 @@ app.use('/authentication', authenticationRouter);
 app.use('/orders', ordersRouter);
 app.use('/profile', profileRouter);
 app.use('/announcement', announcementRouter);
+app.use('/comments', commentsRouter);
 
 //emailService.sendWeeklyEmail();
 

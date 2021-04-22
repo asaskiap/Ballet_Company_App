@@ -103,6 +103,9 @@ export class Profile extends Component {
       orderToEdit: orderToEdit
     });
     this.toggleEditOrderForm();
+    if (this.state.displayEditOrderForm) {
+      document.getElementById('EditOrderForm').scrollIntoView();
+    }
   };
 
   editAnnouncement = async (id) => {
@@ -111,6 +114,9 @@ export class Profile extends Component {
       announcementToEdit: announcementToEdit
     });
     this.toggleEditAnnouncementForm();
+    if (this.state.displayEditAnnouncementForm) {
+      document.getElementById('EditAnnouncementForm').scrollIntoView();
+    }
   };
 
   // reset state and toggle forms on completed edit
@@ -169,6 +175,7 @@ export class Profile extends Component {
                 </p>
               </div>
               <div>
+                <h5>Other</h5>
                 <p>
                   <bold>Dress Size:</bold> {this.state.user.dress_size}
                 </p>
@@ -185,12 +192,16 @@ export class Profile extends Component {
         )}
 
         <div className="editProfileDisplay">
-          <button onClick={this.toggleEditProfile}>Edit Profile</button>{' '}
+          <a href="#FocusEditProfile">
+            <button onClick={this.toggleEditProfile}>Edit Profile</button>{' '}
+          </a>
           {this.state.displayEditForm && (
-            <EditProfile
-              onCompletedProfileEdit={this.onCompletedProfileEdit}
-              user={this.state.user}
-            ></EditProfile>
+            <div id="FocusEditProfile">
+              <EditProfile
+                onCompletedProfileEdit={this.onCompletedProfileEdit}
+                user={this.state.user}
+              ></EditProfile>
+            </div>
           )}
         </div>
 
@@ -205,10 +216,12 @@ export class Profile extends Component {
         </div>
         <div className="editOrderDisplay">
           {this.state.displayEditOrderForm && (
-            <EditOrderForm
-              order={this.state.orderToEdit}
-              onCompletedEdit={this.onCompletedOrderEdit}
-            ></EditOrderForm>
+            <div id="EditOrderForm">
+              <EditOrderForm
+                order={this.state.orderToEdit}
+                onCompletedEdit={this.onCompletedOrderEdit}
+              ></EditOrderForm>
+            </div>
           )}
         </div>
 
@@ -220,7 +233,7 @@ export class Profile extends Component {
           ></PersonalAnnouncements>
         </div>
         {this.state.displayEditAnnouncementForm && (
-          <div>
+          <div id="EditAnnouncementForm">
             <EditAnnouncementForm
               announcement={this.state.announcementToEdit}
               onCompletedEdit={this.onCompletedAnnouncementEdit}

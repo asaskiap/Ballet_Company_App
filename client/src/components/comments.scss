@@ -1,0 +1,64 @@
+.Comments {
+    section {
+        padding: 0.8em 0.3em;
+        margin: 0.8em 0em;
+        width: 100%;
+        .SingleComment {
+            padding: 0em;
+            margin-top: 0.8em;
+            font-size: 0.8em;
+            small {
+                display: flex;
+                justify-content: flex-end;
+            }
+            .CommentEditForm {
+                padding: 1em 2.5em;
+                margin-top: 1em;
+                background-color: rgb(189, 213, 223);
+                border-radius: 5%;
+                box-shadow: 2px 2px 2px grey;
+                label,
+                textarea,
+                button {
+                    margin: 0.7em 0em;
+                }
+            }
+            @media (max-width: 400px) {
+                .CommentEditForm {
+                    padding: 0.5em;
+                }
+            }
+        }
+        .CommentButtons {
+            button {
+                padding: 0.5em;
+                margin: 0.5em;
+                border-radius: 3em;
+                font-size: 0.8em;
+                background-color: rgb(53, 84, 97);
+                color: whitesmoke;
+                box-shadow: 2px 2px 2px grey;
+                border: none;
+            }
+        }
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        textarea {
+            border: none;
+            box-shadow: 2px 2px 2px rgb(53, 84, 97);
+        }
+        button {
+            padding: 0.8em;
+            margin: 0.5em;
+            border-radius: 3em;
+            font-size: 0.8em;
+            background-color: rgb(53, 84, 97);
+            color: whitesmoke;
+            box-shadow: 2px 2px 2px grey;
+            border: none;
+        }
+    }
+}

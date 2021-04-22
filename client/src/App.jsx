@@ -42,11 +42,16 @@ class App extends Component {
 
   render() {
     const user = this.state.user;
+
     return (
       <BrowserRouter>
         <Navbar user={this.state.user} onSignOut={this.handleSignOut}></Navbar>
         <Switch>
-          <Route path="/" component={Home} exact />
+          <Route
+            path="/"
+            render={(props) => <Home {...props} user={this.state.user} />}
+            exact
+          />
 
           <ProtectedRoute
             path="/sign-in"

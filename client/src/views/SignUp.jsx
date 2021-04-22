@@ -114,7 +114,9 @@ class SignUp extends Component {
               onChange={this.handleCheckboxInputChange}
             />
           </section>
-          <label htmlFor="admin-pin-input">Admin Pin </label>
+          <label htmlFor="admin-pin-input">
+            Admin Pincode <i>Required for setting up admin accounts</i>
+          </label>
           <input
             id="admin-pin-input"
             type="text"

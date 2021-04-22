@@ -182,21 +182,27 @@ OR: size, with and color (and maker) are referred to only in the order model and
 - WEEKLY EMAIL (logic and styling) 🔆 ✅
 - style for mobile ✅
 - pin guard for admin sign up ✅
+- fix edit profile styling for web & spread columns better ✅
+- error handling ✅
 
-# Saturday
+- add more photos to styling ✅
+- focus forms on appearance ✅
+- hover for buttons ✅
+- mobile styling adjustments for comments ✅
 
-- error handling
+- comments for announcements ✅
+
+# TO DO
+
+- edit & delete for comments
 
 - why is order edit triggering retrun to home page? ❗
 
-# final touches
-
-- add more photos to styling
 - finish adding pointe shoe makers
+- password change and/ or reset function
+- pagination for announcements
 
-- password reset change and/ or reset function
-
-# nice to have
+# possible
 
 - custom order item
   (- item catalogue)

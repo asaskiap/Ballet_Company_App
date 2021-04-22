@@ -21,8 +21,9 @@ class Navbar extends React.Component {
             {' '}
             <img src={hamburger} alt="ham" height="40" />
           </button>
-          <Link to="/" className="navTitle">
-            <strong>Ballet Company App</strong>
+
+          <Link to="/" className="navTitle link">
+            <strong>Home</strong>
           </Link>
         </div>
 

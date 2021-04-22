@@ -1,21 +1,36 @@
 .orderPage {
     header {
         display: flex;
+        flex-direction: column;
+        height: 100vh;
         align-items: center;
-        margin-bottom: 3em;
+        justify-content: center;
+        margin: 0 auto;
         padding: 3em;
-        color: whitesmoke;
+        background-image: url('./photos/pt_shoes_black.jpg');
+        background-size: cover;
+        color: rgb(43, 43, 43);
         background-color: rgb(41, 41, 41);
         h1 {
+            margin-top: -3em;
+            margin-left: -8em;
+            margin-bottom: 1em;
             font-size: 5em;
             letter-spacing: 5px;
         }
     }
     @media (max-width: 400px) {
         header {
+            height: auto;
             h1 {
+                margin-top: 0em;
+                margin-left: 0em;
+                margin-bottom: 1em;
                 font-size: 2em;
                 letter-spacing: 3px;
+            }
+            img {
+                display: none;
             }
         }
     }
@@ -24,7 +39,6 @@
 .orderButtons {
     display: flex;
     justify-content: center;
-    margin-left: auto;
     button {
         padding: 1em;
         margin: 1em 0.5em;
@@ -83,6 +97,9 @@
         padding: 0.5em;
         margin: 1em auto;
         border: 1px solid whitesmoke;
+    }
+    button:hover {
+        padding: 0.5em;
     }
     @media (max-width: 400px) {
         flex-wrap: wrap;

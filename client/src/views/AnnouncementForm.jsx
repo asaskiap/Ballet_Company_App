@@ -51,11 +51,12 @@ export class AnnouncementForm extends Component {
     return (
       <div className="createAnnouncementForm">
         <header>
-          <h1>Create an Announcement</h1>
+          <h1>Create an Announcement...</h1>
         </header>
 
         <form onSubmit={this.handleAnnouncement}>
           {' '}
+          <h1>Your announcement</h1>
           <section>
             <label htmlFor="name-input">Title</label>
             <input
