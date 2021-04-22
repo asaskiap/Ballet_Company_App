@@ -144,6 +144,7 @@ class EditProfile extends Component {
               value={this.state.email}
               onChange={this.handleInputChange}
             />
+
             <label htmlFor="profile-picture-input">Profile Picture</label>
             <input
               id="profile-picture-input"

@@ -154,9 +154,15 @@ export class Profile extends Component {
                 <h5>Pointe Shoe Preferences</h5>
                 <p>
                   {' '}
-                  <span>Brand: {this.state.user.pt_brand} | </span>
-                  <span>Maker: {this.state.user.pt_maker} | </span>
-                  <span>Model: {this.state.user.pt_model} | </span>
+                  <span>
+                    Brand: {this.state.user.pt_brand.toUpperCase()} |{' '}
+                  </span>
+                  <span>
+                    Maker: {this.state.user.pt_maker.toUpperCase()} |{' '}
+                  </span>
+                  <span>
+                    Model: {this.state.user.pt_model.toUpperCase()} |{' '}
+                  </span>
                   <span>
                     Size: {this.state.user.pt_size} - {this.state.user.pt_width}{' '}
                     |
@@ -167,8 +173,12 @@ export class Profile extends Component {
                 <h5>Soft Shoe Preferences</h5>
                 <p>
                   {' '}
-                  <span>Brand: {this.state.user.ss_brand} | </span>
-                  <span>Color: {this.state.user.ss_color} | </span>
+                  <span>
+                    Brand: {this.state.user.ss_brand.toUpperCase()} |{' '}
+                  </span>
+                  <span>
+                    Color: {this.state.user.ss_color.toUpperCase()} |{' '}
+                  </span>
                   <span>
                     Size: {this.state.user.ss_size} - {this.state.user.ss_width}{' '}
                     |

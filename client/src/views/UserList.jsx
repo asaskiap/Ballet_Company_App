@@ -29,20 +29,22 @@ export class UserList extends Component {
               </p>
               <p>
                 {' '}
-                <span>Soft Shoe Brand: {user.ss_brand}</span>{' '}
+                <span>Soft Shoe Brand: {user.ss_brand.toUpperCase()}</span>{' '}
                 <span>
                   Soft Shoe Size: {user.ss_size} | {user.ss_width}
                 </span>{' '}
-                <span>Preferred Soft Shoe color: {user.ss_color}</span>
+                <span>
+                  Preferred Soft Shoe color: {user.ss_color.toUpperCase()}
+                </span>
                 <span></span>
               </p>
               <p>
-                <span>Pointe Shoe Brand: {user.pt_brand}</span>{' '}
+                <span>Pointe Shoe Brand: {user.pt_brand.toUpperCase()}</span>{' '}
                 <span>
                   Pointe Shoe Size: {user.pt_size} | {user.pt_size}
                 </span>{' '}
-                <span>Pointe Shoe Model: </span>{' '}
-                <span>Pointe Shoe Maker: {user.pt_maker}</span>{' '}
+                <span>Pointe Shoe Model: {user.pt_model.toUpperCase()} </span>{' '}
+                <span>Pointe Shoe Maker: {user.pt_maker.toUpperCase()}</span>{' '}
               </p>
             </div>
           ))}

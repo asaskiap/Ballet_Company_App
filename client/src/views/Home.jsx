@@ -34,7 +34,6 @@ export class Home extends Component {
                   )
                 );
               })}
-            ;
           </main>
           <aside>
             <h2>Private announcements</h2>

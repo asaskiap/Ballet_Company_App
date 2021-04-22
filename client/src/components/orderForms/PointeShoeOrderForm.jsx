@@ -19,6 +19,7 @@ class PointeShoeOrderForm extends Component {
     this.setState({
       brand: user.pt_brand,
       maker: user.pt_maker,
+      model: user.pt_model,
       size: user.pt_size,
       width: user.pt_width
     });

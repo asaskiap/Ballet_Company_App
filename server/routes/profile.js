@@ -5,6 +5,7 @@ const express = require('express');
 const router = new express.Router();
 const routeGuard = require('./../middleware/route-guard');
 const fileUploadMiddleware = require('./../middleware/file-upload');
+const bcryptjs = require('bcryptjs');
 
 const User = require('./../models/user');
 const Order = require('./../models/order');
@@ -55,6 +56,7 @@ router.patch(
             email,
             pt_brand,
             pt_maker,
+            pt_model,
             pt_size,
             pt_width,
             ss_brand,
@@ -66,8 +68,6 @@ router.patch(
             shoe_size
         } = req.body;
         const id = req.user._id;
-        console.log(name, email);
-        console.log('here, going to upload picture');
 
         let picture;
         if (req.file) {
@@ -75,7 +75,7 @@ router.patch(
         } else {
             picture = req.body.picture;
         }
-        console.log(picture);
+
         try {
             const user = await User.findByIdAndUpdate(
                 id, {
@@ -85,6 +85,7 @@ router.patch(
                         profilePicture: picture,
                         pt_brand,
                         pt_maker,
+                        pt_model,
                         pt_size,
                         pt_width,
                         ss_brand,
@@ -97,6 +98,7 @@ router.patch(
                     }
                 }, { new: true }
             );
+
             res.json({ user });
         } catch (error) {
             next(error);

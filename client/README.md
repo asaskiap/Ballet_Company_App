@@ -190,18 +190,12 @@ OR: size, with and color (and maker) are referred to only in the order model and
 - hover for buttons ✅
 - mobile styling adjustments for comments ✅
 - edit & delete for comments ✅
-
 - create user size preference overview ✅
-
 - comments for announcements ✅
+- add pointe shoe model name to user model, user preferences and preload in order form✅
 
 # TO DO
 
 - finish adding pointe shoe makers
 - password change and/ or reset function
 - pagination for announcements
-
-# possible
-
-- custom order item
-  (- item catalogue)
