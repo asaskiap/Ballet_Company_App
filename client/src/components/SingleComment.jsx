@@ -48,39 +48,37 @@ export class SingleComment extends Component {
 
   render() {
     return (
-      <div>
-        <p className="SingleComment">
-          {this.props.content.comment}{' '}
-          <small>
-            <i>{this.props.content.creator.name}</i>
-            {this.props.content.creator._id === this.props.user._id && (
-              <span className="CommentButtons">
-                <button onClick={this.toggleEditForm}>Edit</button>
-                <button
-                  onClick={() => this.deleteComment(this.props.content._id)}
-                >
-                  Delete
-                </button>
-              </span>
-            )}
-          </small>
-          {this.state.displayEditForm && (
-            <form onSubmit={this.editComment} className="CommentEditForm">
-              {' '}
-              <label htmlFor="commentInput">Edit Comment:</label>
-              <input
-                id="commentInput"
-                type="textarea"
-                name="comment"
-                rows="3"
-                cols="20"
-                onChange={this.handleInputChange}
-                value={this.state.comment}
-              />
-              <button>Edit Comment</button>
-            </form>
+      <div className="SingleComment">
+        {this.props.content.comment}{' '}
+        <small>
+          <i>{this.props.content.creator.name}</i>
+          {this.props.content.creator._id === this.props.user._id && (
+            <span className="CommentButtons">
+              <button onClick={this.toggleEditForm}>Edit</button>
+              <button
+                onClick={() => this.deleteComment(this.props.content._id)}
+              >
+                Delete
+              </button>
+            </span>
           )}
-        </p>
+        </small>
+        {this.state.displayEditForm && (
+          <form onSubmit={this.editComment} className="CommentEditForm">
+            {' '}
+            <label htmlFor="commentInput">Edit Comment:</label>
+            <input
+              id="commentInput"
+              type="textarea"
+              name="comment"
+              rows="3"
+              cols="20"
+              onChange={this.handleInputChange}
+              value={this.state.comment}
+            />
+            <button>Edit Comment</button>
+          </form>
+        )}
       </div>
     );
   }
