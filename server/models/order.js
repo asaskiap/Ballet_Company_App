@@ -3,7 +3,6 @@
 const mongoose = require('mongoose');
 
 const schema = new mongoose.Schema({
-    // one or the other item should be required, not both... How?
     item: {
         type: String
     },

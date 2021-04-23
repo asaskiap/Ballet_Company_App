@@ -187,16 +187,10 @@ export class Profile extends Component {
               </div>
               <div>
                 <h5>Other</h5>
-                <p>
-                  <bold>Dress Size:</bold> {this.state.user.dress_size}
-                </p>
-                <p>
-                  <bold>Shoe Size:</bold> {this.state.user.shoe_size}
-                </p>
+                <p>Dress Size: {this.state.user.dress_size}</p>
+                <p>Shoe Size: {this.state.user.shoe_size}</p>
 
-                <p>
-                  <bold>Sock Size:</bold> {this.state.user.sock_size}
-                </p>
+                <p>Sock Size: {this.state.user.sock_size}</p>
               </div>
             </div>
           </section>

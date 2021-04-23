@@ -2,6 +2,7 @@
 'use strict';
 
 const { Router } = require('express');
+const ADMINPIN = process.env.ADMINPIN;
 
 const bcryptjs = require('bcryptjs');
 const User = require('./../models/user');
@@ -19,9 +20,17 @@ router.post(
         } else {
             picture = req.body.picture;
         }
-        const { name, email, password, admin } = req.body;
+        const { name, email, password, admin, adminpin } = req.body;
 
         try {
+            //check admin pin
+            if (admin) {
+                if (!(adminpin === ADMINPIN)) {
+                    console.log('wrong admin pin');
+                    res.json({});
+                    return;
+                }
+            }
             const hash = await bcryptjs.hash(password, 10);
             const user = await User.create({
                 name,

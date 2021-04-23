@@ -7,6 +7,7 @@ class EditProfile extends Component {
     name: '',
     email: '',
     picture: '',
+    password: '',
     //pointe shoes
     pt_brand: '',
     pt_maker: '',
@@ -68,6 +69,7 @@ class EditProfile extends Component {
     const {
       name,
       email,
+      password,
       picture,
       pt_brand,
       pt_maker,
@@ -86,6 +88,7 @@ class EditProfile extends Component {
     const values = {
       name,
       email,
+      password,
       picture,
       pt_brand,
       pt_maker,
@@ -145,6 +148,16 @@ class EditProfile extends Component {
               onChange={this.handleInputChange}
             />
 
+            <label htmlFor="password-input">Password</label>
+            <input
+              id="password-input"
+              type="password"
+              placeholder="Choose a password"
+              name="password"
+              value={this.state.password}
+              onChange={this.handleInputChange}
+            />
+
             <label htmlFor="profile-picture-input">Profile Picture</label>
             <input
               id="profile-picture-input"
@@ -185,16 +198,26 @@ class EditProfile extends Component {
               onChange={this.handleInputChange}
             >
               <option value="">--Please choose a maker--</option>
-              <option value="heart">🤍</option>
-              <option value="club">⚜</option>
-              <option value="butterfly">🦋</option>
-              <option value="fish">🐟</option>
-              <option value="maleteesecross">&#5869;</option>
-              <option value="star">&#8902;</option>
-              <option value="rhomboid">&#9674;</option>
-              <option value="triangle">&#9651;</option>
-              <option value="clef">&#119070;</option>
+              <option value="heart">🤍 (heart)</option>
+              <option value="club">⚜ (club)</option>
+              <option value="butterfly">&#129419; (butterfly)</option>
+              <option value="fish">🐟 (fish)</option>
+              <option value="maleteesecross">&#5869; (maleteese cross)</option>
+              <option value="star">&#8902; (star)</option>
+              <option value="diamond">&#9674; (diamond)</option>
+              <option value="triangle">&#9651; (triangle)</option>
+              <option value="clef">&#119070; (clef)</option>
+              <option value="anchor">&#9875; (anchor)</option>
+              <option value="crown">&#9819; (crown)</option>
+              <option value="shield">&#128737; (shield)</option>
+              <option value="wineglass">&#127864; (wineglass)</option>
+              <option value="castle">&#9963; (castle) </option>
+              <option value="squiggle">&#9137; (squiggle) </option>
               <option value="L">L</option>
+              <option value="R">R</option>
+              <option value="D">D</option>
+              <option value="Z">Z</option>
+              <option value="Q">Q</option>
               <option value="T">T</option>
               <option value="Y">Y</option>
               <option value="B">B</option>

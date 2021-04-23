@@ -1,7 +1,8 @@
+/* eslint-disable prettier/prettier */
 'use strict';
 
 const mongoose = require('mongoose');
-const { DRESS_SIZES, BRANDS, WIDTHS, MAKERS, COLORS } = require('./common.js');
+const { DRESS_SIZES, BRANDS, WIDTHS, COLORS } = require('./common.js');
 
 const schema = new mongoose.Schema({
     name: {
@@ -30,7 +31,6 @@ const schema = new mongoose.Schema({
     },
     pt_maker: {
         type: String,
-        enum: MAKERS,
         default: 'not specified'
     },
     pt_model: {

@@ -1,19 +1,6 @@
 exports.WIDTHS = ['X', 'XX', 'XXX', 'N', 'M', 'W', 'not specified'];
 exports.COLORS = ['skin color', 'white', 'black', 'brown', 'not specified'];
-exports.MATERIALS = ['satin', 'canvas', 'leather', 'not specified'];
-exports.MAKERS = [
-    'heart',
-    'butterfly',
-    'wineglass',
-    'club',
-    'L',
-    'cross',
-    'castle',
-    'anchor',
-    'star',
-    'fish',
-    'not specified'
-];
+
 exports.BRANDS = [
     'freed',
     'bloch',

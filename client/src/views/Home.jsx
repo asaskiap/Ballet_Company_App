@@ -28,6 +28,7 @@ export class Home extends Component {
                 return (
                   a.creator_isAdmin && (
                     <SingleAnnouncement
+                      key={a._id}
                       announcement={a}
                       user={this.props.user}
                     ></SingleAnnouncement>
@@ -42,6 +43,7 @@ export class Home extends Component {
                 return (
                   !a.creator_isAdmin && (
                     <SingleAnnouncement
+                      key={a._id}
                       announcement={a}
                       user={this.props.user}
                     ></SingleAnnouncement>

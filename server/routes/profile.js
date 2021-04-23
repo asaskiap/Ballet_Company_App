@@ -54,6 +54,7 @@ router.patch(
         const {
             name,
             email,
+            password,
             pt_brand,
             pt_maker,
             pt_model,
@@ -77,6 +78,16 @@ router.patch(
         }
 
         try {
+            //check if user wants to update password:
+
+            if (password) {
+                const hash = await bcryptjs.hash(password, 10);
+                await User.findByIdAndUpdate(id, {
+                    $set: {
+                        passwordHashAndSalt: hash
+                    }
+                });
+            }
             const user = await User.findByIdAndUpdate(
                 id, {
                     $set: {

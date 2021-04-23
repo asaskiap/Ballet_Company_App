@@ -32,7 +32,6 @@ export class SingleAnnouncement extends Component {
     const a = this.props.announcement;
     return (
       <div
-        key={a._id}
         className={`singleAnnouncement ${
           a.creator_isAdmin ? 'main' : 'aside'
         }  ${a.importantFlag ? 'singleAnnouncement_important' : ''}`}

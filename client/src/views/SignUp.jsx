@@ -9,29 +9,27 @@ class SignUp extends Component {
     admin: false,
     picture:
       'https://res.cloudinary.com/dlrdquvjq/image/upload/v1618512395/e4leivcd2lhunmbkwu3q.png',
-    adminPinInput: '',
-    adminPin: 'Cab1Helm2Zen3Tilt'
+    adminPinInput: ''
   };
 
   handleFormSubmission = async (event) => {
     event.preventDefault();
-    // if admin is checked, see if pin matches
-    if (this.state.admin) {
-      if (!(this.state.adminPin === this.state.adminPinInput)) {
-        alert('Wrong Pin! You cannot sign up as ADMINISTRATOR. ');
-        return;
-      }
-    }
-    const { name, email, password, admin, picture } = this.state;
-    // if you want to send file to the back end with the request body, we cannot send a simple object but it must be an object with the type FormData
+
+    const { name, email, password, admin, picture, adminPinInput } = this.state;
+
     const data = new FormData();
     data.append('name', name);
     data.append('email', email);
     data.append('password', password);
     data.append('admin', admin);
+    data.append('adminpin', adminPinInput);
     data.append('picture', picture);
 
     const user = await signUp(data);
+    if (admin && !user) {
+      alert('Wrong admin pin - you cannot sign up as administrator! ');
+      return;
+    }
     this.props.onUserChange(user);
   };
 
