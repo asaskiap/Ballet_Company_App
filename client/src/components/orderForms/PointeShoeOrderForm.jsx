@@ -124,6 +124,8 @@ class PointeShoeOrderForm extends Component {
             <input
               id="size-input"
               type="number"
+              min="0"
+              max="60"
               placeholder="size"
               name="size"
               value={this.state.size}

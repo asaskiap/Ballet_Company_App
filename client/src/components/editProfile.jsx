@@ -229,6 +229,8 @@ class EditProfile extends Component {
               type="number"
               placeholder="size"
               name="pt_size"
+              min="0"
+              max="60"
               value={this.state.pt_size}
               onChange={this.handleInputChange}
             />
@@ -265,6 +267,8 @@ class EditProfile extends Component {
               type="number"
               placeholder="size"
               name="ss_size"
+              min="0"
+              max="60"
               value={this.state.ss_size}
               onChange={this.handleInputChange}
             />
@@ -290,7 +294,7 @@ class EditProfile extends Component {
               onChange={this.handleInputChange}
             >
               <option value="">--Please choose a color--</option>
-              <option value="skin-color">Skin-Color</option>
+              <option value="suntan">Sun Tan</option>
               <option value="black">Black</option>
               <option value="white">White</option>
               <option value="brown">Brown</option>
@@ -327,6 +331,8 @@ class EditProfile extends Component {
             <input
               id="shoe-size-input"
               type="number"
+              min="0"
+              max="60"
               placeholder="shoe size"
               name="shoe_size"
               value={this.state.shoe_size}

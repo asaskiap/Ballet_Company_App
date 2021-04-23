@@ -194,9 +194,9 @@ OR: size, with and color (and maker) are referred to only in the order model and
 - comments for announcements ✅
 - add pointe shoe model name to user model, user preferences and preload in order form✅
 - finish adding pointe shoe makers ✅
+- set env variable for adminpin & redeploy✅
 
 # TO DO
 
-- set env variable for adminpin & redeploy
 - password change ✅ and/ or reset function
 - pagination for announcements

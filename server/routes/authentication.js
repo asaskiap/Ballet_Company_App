@@ -7,6 +7,7 @@ const ADMINPIN = process.env.ADMINPIN;
 const bcryptjs = require('bcryptjs');
 const User = require('./../models/user');
 const fileUploadMiddleware = require('./../middleware/file-upload');
+const sendEmail = require('./../utilities/send-email');
 
 const router = new Router();
 
@@ -24,7 +25,8 @@ router.post(
 
         try {
             //check admin pin
-            if (admin) {
+
+            if (admin === true) {
                 if (!(adminpin === ADMINPIN)) {
                     console.log('wrong admin pin');
                     res.json({});
@@ -51,7 +53,6 @@ router.post(
 
 router.post('/sign-in', (req, res, next) => {
     let user;
-    console.log(process.env.ALLOWED_CORS_ORIGIN, process.env.GMAIL_ADDRESS);
     const { email, password } = req.body;
     console.log(req.body);
 

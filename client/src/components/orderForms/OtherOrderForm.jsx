@@ -115,6 +115,8 @@ class OtherOrderForm extends Component {
             <input
               id="quantity-input"
               type="number"
+              min="0"
+              max="60"
               placeholder="quantity"
               name="quantity"
               value={this.state.quantity}
