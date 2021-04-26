@@ -21,7 +21,6 @@ export const editOrder = async(id, data) => {
     console.log(body);
 };
 export const listOrders = async() => {
-    console.log('getting orders');
     const response = await api.get('/orders/list');
     const body = response.data;
     return body.orderList;

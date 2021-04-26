@@ -7,7 +7,6 @@ const ADMINPIN = process.env.ADMINPIN;
 const bcryptjs = require('bcryptjs');
 const User = require('./../models/user');
 const fileUploadMiddleware = require('./../middleware/file-upload');
-const sendEmail = require('./../utilities/send-email');
 
 const router = new Router();
 

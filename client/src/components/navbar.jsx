@@ -30,50 +30,62 @@ class Navbar extends React.Component {
         <div className="navLinkContainer">
           {(this.props.user && (
             <>
-              <Link
-                to={`/${this.props.user._id}`}
-                className={` ${
-                  this.state.navDisplay ? 'navDisplay' : 'navLink'
-                }`}
-              >
-                {this.props.user.name}
-              </Link>
-              <Link
-                to="/order"
-                className={` ${
-                  this.state.navDisplay ? 'navDisplay' : 'navLink'
-                }`}
-              >
-                Place an Order
-              </Link>
-
-              <Link
-                to="/announcement"
-                className={` ${
-                  this.state.navDisplay ? 'navDisplay' : 'navLink'
-                }`}
-              >
-                Create an announcement
-              </Link>
-              {this.props.user.isAdministrator && (
+              <button onClick={this.toggleNavbar}>
+                {' '}
                 <Link
-                  to="/list"
+                  to={`/${this.props.user._id}`}
                   className={` ${
                     this.state.navDisplay ? 'navDisplay' : 'navLink'
                   }`}
                 >
-                  See all Orders
+                  {this.props.user.name}
                 </Link>
+              </button>
+
+              <button onClick={this.toggleNavbar}>
+                <Link
+                  to="/order"
+                  className={` ${
+                    this.state.navDisplay ? 'navDisplay' : 'navLink'
+                  }`}
+                >
+                  Place an Order
+                </Link>
+              </button>
+              <button onClick={this.toggleNavbar}>
+                <Link
+                  to="/announcement"
+                  className={` ${
+                    this.state.navDisplay ? 'navDisplay' : 'navLink'
+                  }`}
+                >
+                  Create an announcement
+                </Link>
+              </button>
+
+              {this.props.user.isAdministrator && (
+                <button onClick={this.toggleNavbar}>
+                  <Link
+                    to="/list"
+                    className={` ${
+                      this.state.navDisplay ? 'navDisplay' : 'navLink'
+                    }`}
+                  >
+                    See all Orders
+                  </Link>
+                </button>
               )}
               {this.props.user.isAdministrator && (
-                <Link
-                  to="/userlist"
-                  className={` ${
-                    this.state.navDisplay ? 'navDisplay' : 'navLink'
-                  }`}
-                >
-                  Users' size list
-                </Link>
+                <button onClick={this.toggleNavbar}>
+                  <Link
+                    to="/userlist"
+                    className={` ${
+                      this.state.navDisplay ? 'navDisplay' : 'navLink'
+                    }`}
+                  >
+                    Users' size list
+                  </Link>
+                </button>
               )}
 
               <button

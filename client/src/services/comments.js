@@ -2,7 +2,6 @@ import api from './api';
 
 export const loadCommentsByAnnouncement = async(id) => {
     const response = await api.get(`/comments/load/${id}`);
-    console.log(response.data);
     return response.data.comments;
 };
 export const createComment = async(data) => {

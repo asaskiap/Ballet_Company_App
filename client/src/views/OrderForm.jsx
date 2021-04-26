@@ -34,7 +34,6 @@ export class OrderForm extends Component {
     this.setState({
       [val]: true
     });
-    console.log(this.state);
   }
   render() {
     return (

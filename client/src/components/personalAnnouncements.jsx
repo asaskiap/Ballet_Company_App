@@ -14,13 +14,16 @@ class PersonalAnnouncements extends Component {
                 <p>{announcement.message}</p>
 
                 <p>
-                  <section>
-                    <img
-                      src={announcement.image}
-                      alt="announcement_image"
-                      height="100"
-                    />
-                  </section>
+                  {announcement.image && (
+                    <section>
+                      <img
+                        src={announcement.image}
+                        alt="announcement_image"
+                        height="100"
+                      />
+                    </section>
+                  )}
+
                   <section className="announcementButtons">
                     <button
                       onClick={() =>

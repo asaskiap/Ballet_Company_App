@@ -14,7 +14,6 @@ export class SingleAnnouncement extends Component {
   loadComments = async () => {
     const id = this.props.announcement._id;
     const commentsList = await loadCommentsByAnnouncement(id);
-    console.log(commentsList);
     this.setState({
       commentsList
     });

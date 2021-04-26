@@ -41,18 +41,16 @@
             padding: 0;
         }
         .navDisplay {
+            margin: 1em 0em;
             text-decoration: none;
-            margin: 0.5em;
-            padding: 0.4em 0.8em;
             color: whitesmoke;
-            border-radius: 7px;
         }
         .navHamburger img {
             display: block;
             margin: 0em;
         }
         .navLinkContainer {
-            margin: 0em 2em;
+            margin: 0em;
             display: flex;
             flex-direction: column;
             align-items: flex-start;

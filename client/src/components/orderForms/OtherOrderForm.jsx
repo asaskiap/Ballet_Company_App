@@ -46,7 +46,6 @@ class OtherOrderForm extends Component {
       quantity,
       comments
     });
-    console.log('other order created');
     //reset state of parent component to make order form disappear
     this.props.onOrderSubmission();
   };
@@ -103,7 +102,7 @@ class OtherOrderForm extends Component {
               onChange={this.handleInputChange}
             >
               <option value="">--Please choose a color--</option>
-              <option value="sun-tan">Skin-Color</option>
+              <option value="sun-tan">Sun Tan</option>
               <option value="black">Black</option>
               <option value="white">White</option>
               <option value="brown">Brown</option>

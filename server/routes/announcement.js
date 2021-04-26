@@ -10,7 +10,7 @@ const routeGuard = require('./../middleware/route-guard');
 const router = new Router();
 
 // list announcements
-router.get('/load', routeGuard, async(req, res, next) => {
+router.get('/load', async(req, res, next) => {
     try {
         const announcements = await Announcement.find({});
         announcements.sort((a, b) =>
@@ -27,7 +27,7 @@ router.get('/load', routeGuard, async(req, res, next) => {
 //create announcement
 router.post(
     '/',
-    routeGuard,
+
     fileUploadMiddleware.single('image'),
     async(req, res, next) => {
         let image;
@@ -60,7 +60,7 @@ router.post(
 );
 
 // load single announcement
-router.get('/:id', routeGuard, async(req, res, next) => {
+router.get('/:id', async(req, res, next) => {
     try {
         const announcement = await Announcement.findById(req.params.id);
         res.json({ announcement });
@@ -71,7 +71,7 @@ router.get('/:id', routeGuard, async(req, res, next) => {
 });
 
 // delete announcement
-router.delete('/:id', routeGuard, async(req, res, next) => {
+router.delete('/:id', async(req, res, next) => {
     try {
         console.log('deleting announcement in router');
         await Announcement.findByIdAndDelete(req.params.id);
@@ -85,7 +85,7 @@ router.delete('/:id', routeGuard, async(req, res, next) => {
 // edit announcement
 router.patch(
     '/:id',
-    routeGuard,
+
     fileUploadMiddleware.single('image'),
     async(req, res, next) => {
         const { title, message, importantFlag } = req.body;

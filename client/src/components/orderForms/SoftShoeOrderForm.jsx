@@ -55,7 +55,6 @@ class SoftShoeOrderForm extends Component {
       quantity,
       comments
     });
-    console.log('soft shoe order created');
     //reset state of parent component to make order form disappear
     this.props.onOrderSubmission();
   };
