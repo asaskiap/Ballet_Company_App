@@ -20,7 +20,7 @@ export class UserList extends Component {
         </header>
         {this.state.users &&
           this.state.users.map((user) => (
-            <div className="SingleUser">
+            <div className="SingleUser" key={user._id}>
               <h6>{user.name}</h6>{' '}
               <p>
                 <span>General Shoe Size: {user.shoe_size}</span>{' '}

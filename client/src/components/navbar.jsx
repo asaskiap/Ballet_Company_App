@@ -15,108 +15,68 @@ class Navbar extends React.Component {
   };
   render() {
     return (
-      <nav className="navbar">
-        <div className="navHamburger">
-          <button onClick={this.toggleNavbar}>
-            {' '}
-            <img src={hamburger} alt="ham" height="40" />
-          </button>
+      <nav>
+        <h1>The Ballet Company App</h1>
+        <div className="navbar">
+          <div className="navHamburger">
+            <button onClick={this.toggleNavbar} className="navHamburger">
+              {' '}
+              <img src={hamburger} alt="ham" height="40" />
+            </button>
+          </div>
 
-          <Link to="/" className="navTitle link">
-            <strong>Home</strong>
-          </Link>
-        </div>
-
-        <div className="navLinkContainer">
-          {(this.props.user && (
-            <>
-              <button onClick={this.toggleNavbar}>
-                {' '}
-                <Link
-                  to={`/${this.props.user._id}`}
-                  className={` ${
-                    this.state.navDisplay ? 'navDisplay' : 'navLink'
-                  }`}
-                >
-                  {this.props.user.name}
-                </Link>
-              </button>
-
-              <button onClick={this.toggleNavbar}>
-                <Link
-                  to="/order"
-                  className={` ${
-                    this.state.navDisplay ? 'navDisplay' : 'navLink'
-                  }`}
-                >
-                  Place an Order
-                </Link>
-              </button>
-              <button onClick={this.toggleNavbar}>
-                <Link
-                  to="/announcement"
-                  className={` ${
-                    this.state.navDisplay ? 'navDisplay' : 'navLink'
-                  }`}
-                >
-                  Create an announcement
-                </Link>
-              </button>
-
-              {this.props.user.isAdministrator && (
+          <div
+            className={`  ${
+              this.state.navDisplay ? 'navDisplay' : 'navLinkContainer'
+            }`}
+          >
+            <button>
+              {' '}
+              <Link to="/">
+                <strong>Home</strong>
+              </Link>
+            </button>
+            {(this.props.user && (
+              <>
                 <button onClick={this.toggleNavbar}>
-                  <Link
-                    to="/list"
-                    className={` ${
-                      this.state.navDisplay ? 'navDisplay' : 'navLink'
-                    }`}
-                  >
-                    See all Orders
+                  {' '}
+                  <Link to={`/${this.props.user._id}`}>
+                    {this.props.user.name}
                   </Link>
                 </button>
-              )}
-              {this.props.user.isAdministrator && (
-                <button onClick={this.toggleNavbar}>
-                  <Link
-                    to="/userlist"
-                    className={` ${
-                      this.state.navDisplay ? 'navDisplay' : 'navLink'
-                    }`}
-                  >
-                    Users' size list
-                  </Link>
-                </button>
-              )}
 
-              <button
-                onClick={this.props.onSignOut}
-                className={` ${
-                  this.state.navDisplay ? 'navDisplay' : 'navLink'
-                }`}
-              >
-                Sign Out
-              </button>
-            </>
-          )) || (
-            <>
-              <Link
-                to="/sign-in"
-                className={` ${
-                  this.state.navDisplay ? 'navDisplay' : 'navLink'
-                }`}
-              >
-                Sign In
-              </Link>
-              <Link
-                to="/sign-up"
-                className={` ${
-                  this.state.navDisplay ? 'navDisplay' : 'navLink'
-                }`}
-              >
-                Sign Up
-              </Link>
-            </>
-          )}
+                <button onClick={this.toggleNavbar}>
+                  <Link to="/order">Place an Order</Link>
+                </button>
+                <button onClick={this.toggleNavbar}>
+                  <Link to="/announcement">Create an announcement</Link>
+                </button>
+
+                {this.props.user.isAdministrator && (
+                  <button onClick={this.toggleNavbar}>
+                    <Link to="/list">See all Orders</Link>
+                  </button>
+                )}
+                {this.props.user.isAdministrator && (
+                  <button onClick={this.toggleNavbar}>
+                    <Link to="/userlist">Users' size list</Link>
+                  </button>
+                )}
+
+                <button onClick={this.props.onSignOut}>Sign Out</button>
+              </>
+            )) || (
+              <>
+                <button>
+                  {' '}
+                  <Link to="/sign-in">Sign In</Link>
+                </button>
+                <button>
+                  <Link to="/sign-up">Sign Up</Link>
+                </button>
+              </>
+            )}
+          </div>
         </div>
       </nav>
     );

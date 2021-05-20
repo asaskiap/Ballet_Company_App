@@ -1,14 +1,18 @@
 .UserList {
-    margin: 3em;
-    border: 1px solid rgb(41, 41, 41);
-    box-shadow: 3px 3px 3px gray;
-    padding: 2em;
     h1 {
+        padding: 2em;
         font-size: 2.5em;
-        letter-spacing: 4px;
+        text-align: center;
+        background-color: rgb(158, 177, 194);
+        margin-top: 0em;
         margin-bottom: 1.5em;
     }
     .SingleUser {
+        border: 1px solid rgb(161, 161, 161);
+        box-shadow: 3px 3px 3px rgb(212, 212, 212);
+        border-radius: 10px;
+        margin: 1em 7em;
+        padding: 2em;
         h6 {
             font-size: 1em;
         }
@@ -18,11 +22,8 @@
                 flex: 1;
             }
         }
-        border-bottom: 2px solid rgb(81, 126, 138);
     }
     @media (max-width: 400px) {
-        margin: 1em 0.5em;
-        padding: 0.8em;
         align-items: center;
         h1 {
             font-size: 1em;
@@ -30,8 +31,10 @@
             margin-bottom: 1em;
         }
         .SingleUser {
+            margin: 1em;
             h6 {
                 font-size: 0.8em;
+                margin: 0em;
             }
             p {
                 display: flex;

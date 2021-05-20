@@ -22,6 +22,9 @@ import './profile.scss';
 export class Profile extends Component {
   state = {
     user: null,
+    displayPreferences: false,
+    displayOrders: false,
+    displayAnnouncements: false,
     displayEditForm: false,
     displayEditOrderForm: false,
     orderToEdit: null,
@@ -133,117 +136,146 @@ export class Profile extends Component {
     this.toggleEditAnnouncementForm();
   };
 
+  displaySection(val) {
+    this.setState({
+      displayPreferences: false,
+      displayAnnouncements: false,
+      displayOrders: false
+    });
+    this.setState({
+      [val]: !this.state[val]
+    });
+  }
   // display
   render() {
     return (
-      <div className="wrapper profile">
+      <div className="profile">
         {this.state.user && (
-          <section>
+          <>
             <header>
+              {' '}
               <h2>{this.state.user.name}</h2>
               <img
                 className="pictureInProfileView"
                 src={this.state.user.profilePicture}
                 alt={this.state.user.name}
-              ></img>
+              ></img>{' '}
             </header>
-
-            <div className="profileInfo">
-              <h2>Personal Size and Brand Preferences</h2>
-              <div>
-                <h5>Pointe Shoe Preferences</h5>
-                <p>
-                  {' '}
-                  <span>
-                    Brand: {this.state.user.pt_brand.toUpperCase()} |{' '}
-                  </span>
-                  <span>
-                    Maker: {this.state.user.pt_maker.toUpperCase()} |{' '}
-                  </span>
-                  <span>
-                    Model: {this.state.user.pt_model.toUpperCase()} |{' '}
-                  </span>
-                  <span>
-                    Size: {this.state.user.pt_size} - {this.state.user.pt_width}{' '}
-                    |
-                  </span>
-                </p>
-              </div>
-              <div>
-                <h5>Soft Shoe Preferences</h5>
-                <p>
-                  {' '}
-                  <span>
-                    Brand: {this.state.user.ss_brand.toUpperCase()} |{' '}
-                  </span>
-                  <span>
-                    Color: {this.state.user.ss_color.toUpperCase()} |{' '}
-                  </span>
-                  <span>
-                    Size: {this.state.user.ss_size} - {this.state.user.ss_width}{' '}
-                    |
-                  </span>
-                </p>
-              </div>
-              <div>
-                <h5>Other</h5>
-                <p>Dress Size: {this.state.user.dress_size}</p>
-                <p>Shoe Size: {this.state.user.shoe_size}</p>
-
-                <p>Sock Size: {this.state.user.sock_size}</p>
-              </div>
+            <section className="orderButtons profileButtons">
+              <a href="#FormFocus">
+                <button
+                  onClick={() => this.displaySection('displayPreferences')}
+                >
+                  Preferences
+                </button>
+              </a>
+              <a href="#FormFocus">
+                <button onClick={() => this.displaySection('displayOrders')}>
+                  Orders
+                </button>
+              </a>
+              <a href="#FormFocus">
+                <button
+                  onClick={() => this.displaySection('displayAnnouncements')}
+                >
+                  Announcements
+                </button>
+              </a>
+            </section>
+          </>
+        )}
+        {this.state.displayPreferences && (
+          <div className="profileInfo" id="FormFocus">
+            <h2> Size and Brand Preferences</h2>
+            <div>
+              <h5>Pointe Shoe Preferences</h5>
+              <p>
+                {' '}
+                <span>Brand: {this.state.user.pt_brand.toUpperCase()} | </span>
+                <span>Maker: {this.state.user.pt_maker.toUpperCase()} | </span>
+                <span>Model: {this.state.user.pt_model.toUpperCase()} | </span>
+                <span>
+                  Size: {this.state.user.pt_size} - {this.state.user.pt_width} |
+                </span>
+              </p>
             </div>
-          </section>
+            <div>
+              <h5>Soft Shoe Preferences</h5>
+              <p>
+                {' '}
+                <span>Brand: {this.state.user.ss_brand.toUpperCase()} | </span>
+                <span>Color: {this.state.user.ss_color.toUpperCase()} | </span>
+                <span>
+                  Size: {this.state.user.ss_size} - {this.state.user.ss_width} |
+                </span>
+              </p>
+            </div>
+            <div>
+              <h5>Other</h5>
+              <p>Dress Size: {this.state.user.dress_size}</p>
+              <p>Shoe Size: {this.state.user.shoe_size}</p>
+
+              <p>Sock Size: {this.state.user.sock_size}</p>
+            </div>
+            <div className="editProfileDisplay">
+              <a href="#FocusEditProfile">
+                <button onClick={this.toggleEditProfile}>Edit</button>{' '}
+              </a>
+              {this.state.displayEditForm && (
+                <div id="FocusEditProfile">
+                  <EditProfile
+                    onCompletedProfileEdit={this.onCompletedProfileEdit}
+                    user={this.state.user}
+                  ></EditProfile>
+                </div>
+              )}
+            </div>
+          </div>
         )}
 
-        <div className="editProfileDisplay">
-          <a href="#FocusEditProfile">
-            <button onClick={this.toggleEditProfile}>Edit Profile</button>{' '}
-          </a>
-          {this.state.displayEditForm && (
-            <div id="FocusEditProfile">
-              <EditProfile
-                onCompletedProfileEdit={this.onCompletedProfileEdit}
-                user={this.state.user}
-              ></EditProfile>
+        {this.state.displayOrders && (
+          <>
+            <div className="profileOrdersDisplay" id="FormFocus">
+              {this.state.orders && (
+                <PersonalOrderList
+                  orders={this.state.orders}
+                  deleteOrder={this.deleteOrder}
+                  editOrder={this.editOrder}
+                ></PersonalOrderList>
+              )}
             </div>
-          )}
-        </div>
-
-        <div className="profileOrdersDisplay">
-          {this.state.orders && (
-            <PersonalOrderList
-              orders={this.state.orders}
-              deleteOrder={this.deleteOrder}
-              editOrder={this.editOrder}
-            ></PersonalOrderList>
-          )}
-        </div>
-        <div className="editOrderDisplay">
-          {this.state.displayEditOrderForm && (
-            <div id="EditOrderForm">
-              <EditOrderForm
-                order={this.state.orderToEdit}
-                onCompletedEdit={this.onCompletedOrderEdit}
-              ></EditOrderForm>
+            <div className="editOrderDisplay">
+              {this.state.displayEditOrderForm && (
+                <div id="EditOrderForm">
+                  <EditOrderForm
+                    order={this.state.orderToEdit}
+                    onCompletedEdit={this.onCompletedOrderEdit}
+                  ></EditOrderForm>
+                </div>
+              )}
+            </div>{' '}
+          </>
+        )}
+        {this.state.displayAnnouncements && (
+          <>
+            <div className="profileAnnouncementsDisplay" id="FormFocus">
+              {!this.state.announcements.length && <h5>You have no announcements to display!</h5> }
+              {!!this.state.announcements.length && <PersonalAnnouncements
+                announcements={this.state.announcements}
+                editAnnouncement={this.editAnnouncement}
+                deleteAnnouncement={this.deleteAnnouncement}
+              ></PersonalAnnouncements>}
+             
             </div>
-          )}
-        </div>
-
-        <div className="profileAnnouncementsDisplay">
-          <PersonalAnnouncements
-            announcements={this.state.announcements}
-            editAnnouncement={this.editAnnouncement}
-            deleteAnnouncement={this.deleteAnnouncement}
-          ></PersonalAnnouncements>
-        </div>
-        {this.state.displayEditAnnouncementForm && (
-          <div id="EditAnnouncementForm">
-            <EditAnnouncementForm
-              announcement={this.state.announcementToEdit}
-              onCompletedEdit={this.onCompletedAnnouncementEdit}
-            ></EditAnnouncementForm>
-          </div>
+            {this.state.displayEditAnnouncementForm && (
+              <div id="EditAnnouncementForm">
+                <EditAnnouncementForm
+                  announcement={this.state.announcementToEdit}
+                  onCompletedEdit={this.onCompletedAnnouncementEdit}
+                ></EditAnnouncementForm>
+              </div>
+            )}{' '}
+          </>
         )}
       </div>
     );

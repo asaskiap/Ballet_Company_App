@@ -1,60 +1,53 @@
+nav {
+    h1 {
+        margin-left: 1em;
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+}
+
 .navbar {
     padding-top: 1em;
     display: flex;
-    align-items: baseline;
-    background-color: rgb(112, 156, 177);
-    letter-spacing: 2px;
-    .navHamburger img {
+    flex-direction: column;
+    background-color: black;
+    color: whitesmoke;
+    .navLinkContainer {
         display: none;
-        margin: 0em 1em;
     }
-    .navLink,
-    .navTitle {
-        text-decoration: none;
-        margin: 0.5em;
-        padding: 0.4em 0.8em;
-        color: whitesmoke;
-        border-radius: 7px;
-    }
-    .navTitle:hover {
-        font-size: 1.5em;
-    }
-    .navLink:hover {
-        font-weight: 700;
-    }
-    button {
-        padding: 0.2em 0.8em;
-        color: whitesmoke;
-        margin: 0 1em;
+    .navHamburger {
+        margin-left: auto;
+        background-color: black;
         border: none;
-        font-family: 'Spartan', sans-serif;
-        font-size: 1em;
-        background-color: inherit;
+        margin-right: 1em;
+        img {
+            filter: invert(100);
+        }
     }
-    @media (max-width: 400px) {
+    .navDisplay {
+        margin-left: auto;
+        display: flex;
         flex-direction: column;
-        .navLink {
-            display: none;
-        }
-        .navTitle {
-            margin: 0;
-            padding: 0;
-        }
-        .navDisplay {
-            margin: 1em 0em;
-            text-decoration: none;
+        align-items: flex-end;
+        background-color: rgba(0, 0, 0, 0.5);
+        border: none;
+        border-radius: 10px;
+        margin-bottom: -15em;
+        button {
+            background-color: transparent;
+            border: none;
             color: whitesmoke;
+            margin-right: 5em;
+            padding: 1.2em;
+            a {
+                text-decoration: none;
+                background-color: transparent;
+                color: #f5f5f5;
+                font-size: 1.2em;
+            }
         }
-        .navHamburger img {
-            display: block;
-            margin: 0em;
-        }
-        .navLinkContainer {
-            margin: 0em;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            max-width: max-content;
+        @media (max-width: 400px) {
+            margin-bottom: 0em;
         }
     }
 }
