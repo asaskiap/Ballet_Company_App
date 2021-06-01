@@ -19,12 +19,11 @@ export class Home extends Component {
     return (
       <div className="landingPage">
         <section className="homeView"></section>
-
-        <section className="announcementView">
-          <main>
-            <h1>Official Announcements</h1>
             {announcements &&
-              announcements.map((a) => {
+              <section className="announcementView">
+                        <main>
+                          <h1>Announcements</h1>
+              {announcements.map((a) => {
                 return (
                   a.creator_isAdmin && (
                     <SingleAnnouncement
@@ -34,24 +33,12 @@ export class Home extends Component {
                     ></SingleAnnouncement>
                   )
                 );
-              })}
-          </main>
-          <aside>
-            <h2>Private announcements</h2>
-            {announcements &&
-              announcements.map((a) => {
-                return (
-                  !a.creator_isAdmin && (
-                    <SingleAnnouncement
-                      key={a._id}
-                      announcement={a}
-                      user={this.props.user}
-                    ></SingleAnnouncement>
-                  )
-                );
-              })}
-          </aside>
-        </section>
+              })
+            }
+              </main>
+                </section>
+              }
+          
       </div>
     );
   }

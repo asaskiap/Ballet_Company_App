@@ -2,7 +2,6 @@
 'use strict';
 
 const mongoose = require('mongoose');
-const { DRESS_SIZES, BRANDS, WIDTHS, COLORS } = require('./common.js');
 
 const schema = new mongoose.Schema({
     name: {
@@ -26,7 +25,6 @@ const schema = new mongoose.Schema({
     },
     pt_brand: {
         type: String,
-        enum: BRANDS,
         default: 'not specified'
     },
     pt_maker: {
@@ -43,12 +41,14 @@ const schema = new mongoose.Schema({
     },
     pt_width: {
         type: String,
-        enum: WIDTHS,
         default: 'not specified'
     },
     ss_brand: {
         type: String,
-        enum: BRANDS,
+        default: 'not specified'
+    },
+    pt_color: {
+        type: String,
         default: 'not specified'
     },
     ss_size: {
@@ -57,22 +57,18 @@ const schema = new mongoose.Schema({
     },
     ss_width: {
         type: String,
-        enum: WIDTHS,
         default: 'not specified'
     },
     ss_color: {
         type: String,
-        enum: COLORS,
         default: 'not specified'
     },
     dress_size: {
         type: String,
-        enum: DRESS_SIZES,
         default: 'not specified'
     },
     sock_size: {
         type: String,
-        enum: DRESS_SIZES,
         default: 'not specified'
     },
     shoe_size: {
@@ -80,6 +76,7 @@ const schema = new mongoose.Schema({
         default: 0
     },
     orders: [],
+
     profilePicture: {
         type: String
     },

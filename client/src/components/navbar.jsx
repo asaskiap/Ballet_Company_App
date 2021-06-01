@@ -48,9 +48,11 @@ class Navbar extends React.Component {
                 <button onClick={this.toggleNavbar}>
                   <Link to="/order">Place an Order</Link>
                 </button>
-                <button onClick={this.toggleNavbar}>
+                
+                {this.props.user.isAdministrator && 
+                  (<button onClick={this.toggleNavbar}>
                   <Link to="/announcement">Create an announcement</Link>
-                </button>
+                </button>)}
 
                 {this.props.user.isAdministrator && (
                   <button onClick={this.toggleNavbar}>
@@ -62,6 +64,7 @@ class Navbar extends React.Component {
                     <Link to="/userlist">Users' size list</Link>
                   </button>
                 )}
+
 
                 <button onClick={this.props.onSignOut}>Sign Out</button>
               </>

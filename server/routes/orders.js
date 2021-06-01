@@ -2,11 +2,9 @@
 'use strict';
 
 const { Router } = require('express');
-const EMAIL = 'alannapfeiffer@gmail.com';
 
 const routeGuard = require('./../middleware/route-guard');
 const Order = require('./../models/order');
-const sendEmail = require('./../utilities/send-email');
 
 const router = new Router();
 
@@ -90,6 +88,7 @@ router.delete('/:id', async(req, res, next) => {
     }
 });
 router.post('/create', routeGuard, async(req, res, next) => {
+    console.log(req.body);
     const {
         item,
         brand,
@@ -117,28 +116,7 @@ router.post('/create', routeGuard, async(req, res, next) => {
             creator,
             creator_name
         });
-        console.log(order);
-        await sendEmail({
-            receiver: EMAIL,
-            subject: `A new order was submitted`,
-            body: `
-            <div>
-            <h2>A new order from ${creator_name}: </h2>
-            <p>
-            <span> ${item}    |</span>
-            <span> ${brand}   |</span>
-            <span> ${model}   |</span>
-            <span> Maker: ${maker}   | </span>
-            <span> Size: ${size} | ${width}    |</span>
-            <span> ${color}    |</span>
-            <span> Quantity: ${quantity}   |</span>
-            <span> Comments: ${comments}    |</span>
-            </p>
-            </div>
-              
-             
-            `
-        });
+        
         res.json({ order });
     } catch (error) {
         console.log(error);

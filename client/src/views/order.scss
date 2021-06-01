@@ -72,13 +72,13 @@
     .orderItem_inList_name,
     .orderItem_inList_item,
     .orderItem_inList_brand {
-        min-width: 12%;
-        max-width: 12%;
+        min-width: 9%;
+        max-width: 9%;
         padding-left: 0.5em;
     }
     .orderItem_inList_comments {
-        min-width: 25%;
-        max-width: 25%;
+        min-width: 20%;
+        max-width: 20%;
     }
     .orderItem_inList_size {
         min-width: 8%;
@@ -186,7 +186,7 @@
 .orderForm {
     display: flex;
     background-color: whitesmoke;
-    border-bottom: 4em solid rgb(41, 41, 41);
+    
     h2 {
         font-size: 3.5em;
         margin: 1em;
@@ -277,16 +277,7 @@
             textarea {
                 margin-top: 1em;
             }
-            button {
-                background-color: rgb(41, 41, 41);
-                border-radius: 3em;
-                color: whitesmoke;
-                font-size: 1em;
-                padding: 0.5em;
-                margin: 3em auto;
-                border: 1px solid whitesmoke;
-                box-shadow: 4px 2px 2px gray;
-            }
+            
         }
     }
     @media (max-width: 400px) {
@@ -296,5 +287,58 @@
                 margin: 0em;
             }
         }
+    }
+}
+
+
+.pointe{
+    background-color: lavender;
+    color: rgb(31, 10, 31);
+    border-bottom: 4em solid rgb(31, 10, 31);;
+    .pointeBtn {
+        background-color: rgb(31, 10, 31);
+        border-radius: 3em;
+        color: lavender;
+        font-size: 1em;
+        padding: 0.5em;
+        margin: 3em auto;
+        border: 1px solid whitesmoke;
+        box-shadow: 4px 2px 2px grey;
+    }
+   
+}
+
+.soft{
+    background-color: lightgoldenrodyellow;
+    color: rgb(44, 19, 19);
+    border-bottom: 4em solid rgb(44,19,19);
+
+    .softBtn {
+        background-color: rgb(44,19,19);
+        border-radius: 3em;
+        color: lightgoldenrodyellow;
+        font-size: 1em;
+        padding: 0.5em;
+        margin: 3em auto;
+        border: 1px solid whitesmoke;
+        box-shadow: 4px 2px 2px gray;
+    }
+}
+
+.other{
+    background-color: rgb(183, 255, 231);
+    color:rgb(47, 80, 60);
+    border-bottom: 4em solid rgb(47,80,60);
+
+    
+    .otherBtn {
+        background-color: rgb(47, 80, 60);
+        border-radius: 3em;
+        color: whitesmoke;
+        font-size: 1em;
+        padding: 0.5em;
+        margin: 3em auto;
+        border: 1px solid whitesmoke;
+        box-shadow: 4px 2px 2px gray;
     }
 }

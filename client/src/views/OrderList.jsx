@@ -49,7 +49,9 @@ class OrderList extends Component {
                 <span className="orderItem_inList_name">Name</span>
                 <span className="orderItem_inList_item">Item</span>
                 <span className="orderItem_inList_brand">Brand</span>{' '}
+                <span className="orderItem_inList_brand">Model</span>{' '}
                 <span className="orderItem_inList_size">Size|Width</span>
+                <span className="orderItem_inList_brand">Color</span>{' '}
                 <span className="orderItem_inList_quantity">Quantity</span>{' '}
                 <span className="orderItem_inList_comments">Comments</span>
               </p>
@@ -67,8 +69,14 @@ class OrderList extends Component {
                     <span className="orderItem_inList_brand">
                       {order.brand}
                     </span>{' '}
+                    <span className="orderItem_inList_brand">
+                      {order.model}
+                    </span>{' '}
                     <span className="orderItem_inList_size">
                       {order.size} | {order.width}
+                    </span>
+                    <span className="orderItem_inList_size">
+                      {order.color}
                     </span>
                     <span className="orderItem_inList_quantity">
                       {order.quantity}

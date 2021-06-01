@@ -14,6 +14,7 @@ class EditProfile extends Component {
     pt_model: '',
     pt_size: 0,
     pt_width: '',
+    pt_color: '',
     //soft shoes
     ss_brand: '',
     ss_size: 0,
@@ -48,6 +49,7 @@ class EditProfile extends Component {
       pt_maker: user.pt_maker,
       pt_model: user.pt_model,
       pt_width: user.pt_width,
+      pt_color: user.pt_color,
       ss_brand: user.ss_brand,
       ss_size: user.ss_size,
       ss_color: user.ss_color,
@@ -76,6 +78,7 @@ class EditProfile extends Component {
       pt_model,
       pt_size,
       pt_width,
+      pt_color,
       ss_brand,
       ss_size,
       ss_width,
@@ -95,6 +98,7 @@ class EditProfile extends Component {
       pt_model,
       pt_size,
       pt_width,
+      pt_color,
       ss_brand,
       ss_size,
       ss_width,
@@ -246,7 +250,23 @@ class EditProfile extends Component {
               <option value="XX">XX</option>
               <option value="XXX">XXX</option>
             </select>
-          </section>{' '}
+
+            <label htmlFor="pt_color-select">Color</label>
+            <select
+              name="pt_color"
+              id="pt_color-select"
+              value={this.state.pt_color}
+              onChange={this.handleInputChange}
+            >
+              <option value="">--Please choose a color--</option>
+              <option value="pink">Pink</option>
+              <option value="bronze">Bronze</option>
+              <option value="brown">Brown</option>
+            </select>
+
+          </section>
+
+          
           <section>
             <h4>Soft Shoes </h4>
 
@@ -284,6 +304,10 @@ class EditProfile extends Component {
               <option value="N">N</option>
               <option value="M">M</option>
               <option value="W">W</option>
+              <option value="D">D</option>
+              <option value="E">E</option>
+              <option value="EE">EE</option>
+              <option value="C">C</option>
             </select>
 
             <label htmlFor="color-select">Color</label>

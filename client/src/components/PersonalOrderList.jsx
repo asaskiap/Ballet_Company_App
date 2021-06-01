@@ -30,6 +30,9 @@ class PersonalOrderList extends Component {
                 {order.size} | {order.width}
               </span>
               <span className="orderItem_inList_quantity">
+                {order.color}
+              </span>{' '}
+              <span className="orderItem_inList_quantity">
                 {order.quantity}
               </span>{' '}
               <span className="orderItem_inList_comments">

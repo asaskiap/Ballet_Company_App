@@ -10,6 +10,7 @@ class PointeShoeOrderForm extends Component {
     model: '',
     size: 0,
     width: '',
+    color: '',
     quantity: 0,
     comments: ''
   };
@@ -21,7 +22,8 @@ class PointeShoeOrderForm extends Component {
       maker: user.pt_maker,
       model: user.pt_model,
       size: user.pt_size,
-      width: user.pt_width
+      width: user.pt_width,
+      color: user.pt_color,
     });
   }
 
@@ -62,7 +64,7 @@ class PointeShoeOrderForm extends Component {
 
   render() {
     return (
-      <div className="orderForm">
+      <div className="orderForm pointe">
         <h2>Pointe Shoes </h2>
         <form onSubmit={this.handleOrder}>
           <section>
@@ -142,11 +144,26 @@ class PointeShoeOrderForm extends Component {
               <option value="X">X</option>
               <option value="XX">XX</option>
               <option value="XXX">XXX</option>
+              <option value="D">D</option>
+              <option value="E">E</option>
+              <option value="EE">EE</option>
+              <option value="C">C</option>
             </select>
           </section>
 
           <section>
-            {' '}
+          <label htmlFor="color-select">Color</label>
+            <select
+              name="color"
+              id="color-select"
+              value={this.state.color}
+              onChange={this.handleInputChange}
+            >
+              <option value="">--Please choose a color--</option>
+              <option value="pink">Pink</option>
+              <option value="bronze">Bronze</option>
+              <option value="brown">Brown</option>
+            </select>
             <label htmlFor="quantity-input">Quantity</label>
             <input
               id="quantity-input"
@@ -165,7 +182,7 @@ class PointeShoeOrderForm extends Component {
               onChange={this.handleInputChange}
               value={this.state.comments}
             />
-            <button>Submit Order</button>
+            <button className='pointeBtn'>Submit Order</button>
           </section>
         </form>
       </div>

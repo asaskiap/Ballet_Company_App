@@ -174,13 +174,15 @@ export class Profile extends Component {
                   Orders
                 </button>
               </a>
+              {this.state.user.isAdministrator &&
               <a href="#FormFocus">
                 <button
                   onClick={() => this.displaySection('displayAnnouncements')}
                 >
                   Announcements
                 </button>
-              </a>
+              </a>}
+
             </section>
           </>
         )}
@@ -194,6 +196,7 @@ export class Profile extends Component {
                 <span>Brand: {this.state.user.pt_brand.toUpperCase()} | </span>
                 <span>Maker: {this.state.user.pt_maker.toUpperCase()} | </span>
                 <span>Model: {this.state.user.pt_model.toUpperCase()} | </span>
+                <span>Color: {this.state.user.pt_color.toUpperCase()} | </span>
                 <span>
                   Size: {this.state.user.pt_size} - {this.state.user.pt_width} |
                 </span>
@@ -256,6 +259,7 @@ export class Profile extends Component {
             </div>{' '}
           </>
         )}
+
         {this.state.displayAnnouncements && (
           <>
             <div className="profileAnnouncementsDisplay" id="FormFocus">

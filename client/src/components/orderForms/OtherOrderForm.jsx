@@ -51,7 +51,7 @@ class OtherOrderForm extends Component {
   };
   render() {
     return (
-      <div className="orderForm">
+      <div className="orderForm other">
         <h2>Other Orders</h2>
         <form onSubmit={this.handleOrder}>
           <section>
@@ -130,7 +130,7 @@ class OtherOrderForm extends Component {
               onChange={this.handleInputChange}
               value={this.state.comments}
             />
-            <button>Submit Order</button>
+            <button className='otherBtn'>Submit Order</button>
           </section>
         </form>
       </div>

@@ -61,7 +61,7 @@ class SoftShoeOrderForm extends Component {
 
   render() {
     return (
-      <div className="orderForm">
+      <div className="orderForm soft">
         <h2>Soft Shoes </h2>
         <form onSubmit={this.handleOrder}>
           <section>
@@ -97,6 +97,7 @@ class SoftShoeOrderForm extends Component {
               <option value="M">M</option>
               <option value="W">W</option>
             </select>
+
             <label htmlFor="color-select">Color</label>
             <select
               name="color"
@@ -134,7 +135,7 @@ class SoftShoeOrderForm extends Component {
               value={this.state.comments}
             />
 
-            <button>Submit Order</button>
+            <button className='softBtn'>Submit Order</button>
           </section>
         </form>
       </div>
