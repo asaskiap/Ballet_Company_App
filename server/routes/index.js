@@ -11,7 +11,7 @@ router.get('/', (req, res, next) => {
 });
 
 // load list of all users
-router.get('/userlist', routeGuard, async(req, res, next) => {
+router.get('/userlist', async(req, res, next) => {
     try {
         const users = await User.find({});
         users.sort((a, b) =>
@@ -29,7 +29,7 @@ router.get('/userlist', routeGuard, async(req, res, next) => {
     }
 });
 
-router.get('/:id', routeGuard, async(req, res, next) => {
+router.get('/:id', async(req, res, next) => {
     try {
         const user = await User.findById(req.params.id);
         res.json({ individual: user });
@@ -38,7 +38,7 @@ router.get('/:id', routeGuard, async(req, res, next) => {
     }
 });
 
-router.patch('/:id/edit', routeGuard, async(req, res, next) => {
+router.patch('/:id/edit', async(req, res, next) => {
     const {
         name,
         email,
@@ -81,7 +81,7 @@ router.patch('/:id/edit', routeGuard, async(req, res, next) => {
     }
 });
 
-router.get('/private', routeGuard, (req, res, next) => {
+router.get('/private', (req, res, next) => {
     res.json({});
 });
 module.exports = router;

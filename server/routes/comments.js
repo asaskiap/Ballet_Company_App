@@ -12,7 +12,7 @@ const router = new Router();
 
 // list comments for one specific announcement
 
-router.get('/load/:id', routeGuard, async(req, res, next) => {
+router.get('/load/:id', async(req, res, next) => {
     const id = req.params.id;
 
     try {
@@ -33,7 +33,7 @@ router.get('/load/:id', routeGuard, async(req, res, next) => {
 });
 
 //create comment
-router.post('/', routeGuard, async(req, res, next) => {
+router.post('/', async(req, res, next) => {
     const { content, ref } = req.body;
     const creator = req.user;
     const announcement = await Announcement.findById(ref);
@@ -52,7 +52,7 @@ router.post('/', routeGuard, async(req, res, next) => {
 });
 
 // delete comment
-router.delete('/:id', routeGuard, async(req, res, next) => {
+router.delete('/:id', async(req, res, next) => {
     try {
         console.log('deleting comment in router');
         await Comment.findByIdAndDelete(req.params.id);
@@ -64,7 +64,7 @@ router.delete('/:id', routeGuard, async(req, res, next) => {
 });
 
 // edit comment
-router.patch('/:id', routeGuard, async(req, res, next) => {
+router.patch('/:id', async(req, res, next) => {
     console.log(req.body);
     const { content } = req.body;
     const id = req.params.id;

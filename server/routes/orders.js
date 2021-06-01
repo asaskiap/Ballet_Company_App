@@ -8,7 +8,7 @@ const Order = require('./../models/order');
 
 const router = new Router();
 
-router.get('/list', routeGuard, async(req, res, next) => {
+router.get('/list', async(req, res, next) => {
     try {
         const orderList = await Order.find({});
         res.json({ orderList });
@@ -18,7 +18,7 @@ router.get('/list', routeGuard, async(req, res, next) => {
     }
 });
 
-router.patch('/:id/status', routeGuard, async(req, res, next) => {
+router.patch('/:id/status', async(req, res, next) => {
     const { inProcess, received } = req.body;
     const id = req.params.id;
     try {
@@ -87,7 +87,7 @@ router.delete('/:id', async(req, res, next) => {
         next(error);
     }
 });
-router.post('/create', routeGuard, async(req, res, next) => {
+router.post('/create', async(req, res, next) => {
     console.log(req.body);
     const {
         item,

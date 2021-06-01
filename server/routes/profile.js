@@ -11,7 +11,7 @@ const User = require('./../models/user');
 const Order = require('./../models/order');
 const Announcement = require('./../models/announcement');
 
-router.get('/:id', routeGuard, async(req, res, next) => {
+router.get('/:id', async(req, res, next) => {
     try {
         const user = await User.findById(req.params.id);
         res.json({ individual: user });
@@ -20,7 +20,7 @@ router.get('/:id', routeGuard, async(req, res, next) => {
     }
 });
 
-router.get('/:id/orders', routeGuard, async(req, res, next) => {
+router.get('/:id/orders', async(req, res, next) => {
     try {
         const user = await User.findById(req.params.id);
         const orders = await Order.find({ creator: user });
@@ -33,7 +33,7 @@ router.get('/:id/orders', routeGuard, async(req, res, next) => {
     }
 });
 
-router.get('/:id/announcements', routeGuard, async(req, res, next) => {
+router.get('/:id/announcements', async(req, res, next) => {
     try {
         const user = await User.findById(req.params.id);
         const announcements = await Announcement.find({ creator: user });

@@ -38,9 +38,8 @@ const sendWeeklyEmail = async() => {
         <span > From: <br><b>${order.creator_name.toUpperCase()}</b></span>
         <span>Item:<br> <b>${order.item.toUpperCase()}</b></span>
         <span>Brand:<br> <b>${order.brand.toUpperCase()}</b></span>
-        <span>
-          Size|Width:<br> <b>${order.size} | ${order.width}</b>
-        </span>
+        <span>Size|Width:<br> <b>${order.size} | ${order.width}</b></span>
+        <span>Brand:<br> <b>${order.color.toUpperCase()}</b></span>
         <span>Quantity: <br><b>${order.quantity}</b></span>
         <br>
         <small>Comments:<br> ${order.comments || '-'}</small>

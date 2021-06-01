@@ -5,7 +5,6 @@ const { Router } = require('express');
 
 const Announcement = require('./../models/announcement');
 const fileUploadMiddleware = require('./../middleware/file-upload');
-const routeGuard = require('./../middleware/route-guard');
 
 const router = new Router();
 
