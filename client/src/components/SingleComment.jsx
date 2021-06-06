@@ -58,7 +58,7 @@ export class SingleComment extends Component {
         <small>
           {console.log(this.state.creatorName)}
           <i>{this.state.creatorName}</i>
-          {this.props.state.creatorId === this.props.user._id && (
+          {this.state.creatorId === this.props.user._id && (
             <span className="CommentButtons">
               <button onClick={this.toggleEditForm}>Edit</button>
               <button
