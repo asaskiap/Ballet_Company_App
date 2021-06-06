@@ -47,6 +47,8 @@ export class SingleComment extends Component {
   };
 
   render() {
+    console.log(this.props.content)
+
     return (
       <div className="SingleComment">
         {this.props.content.comment}{' '}
