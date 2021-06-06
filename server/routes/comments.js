@@ -30,9 +30,10 @@ router.get('/load/:id', async(req, res, next) => {
 });
 
 //create comment
-router.post('/', async(req, res, next) => {
+router.post('/', async (req, res, next) => {
     const { content, ref } = req.body;
     const creator = req.user;
+    console.log(creator)
     const announcement = await Announcement.findById(ref);
 
     try {
