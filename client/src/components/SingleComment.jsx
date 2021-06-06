@@ -53,6 +53,7 @@ export class SingleComment extends Component {
       <div className="SingleComment">
         {this.props.content.comment}{' '}
         <small>
+          {console.log(this.props.content.creator.name)}
           <i>{this.props.content.creator.name}</i>
           {this.props.content.creator._id === this.props.user._id && (
             <span className="CommentButtons">
