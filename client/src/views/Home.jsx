@@ -6,12 +6,12 @@ import SingleAnnouncement from '../components/SingleAnnouncement';
 
 export class Home extends Component {
   state = {
-    announcements: null
+    announcements: null,
   };
   async componentDidMount() {
     const announcements = await loadAnnouncements();
     this.setState({
-      announcements
+      announcements,
     });
   }
   render() {
@@ -19,7 +19,7 @@ export class Home extends Component {
     return (
       <div className="landingPage">
         <section className="homeView"></section>
-            {announcements &&
+            { announcements &&
               <section className="announcementView">
                         <main>
                           <h1>Announcements</h1>

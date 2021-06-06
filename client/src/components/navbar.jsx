@@ -16,22 +16,19 @@ class Navbar extends React.Component {
   render() {
     return (
       <nav>
-        <h1>The Ballet Company App</h1>
+        <h1>Ballet Chemnitz App</h1>
         <div className="navbar">
           <div className="navHamburger">
             <button onClick={this.toggleNavbar} className="navHamburger">
-              {' '}
               <img src={hamburger} alt="ham" height="40" />
             </button>
           </div>
-
           <div
             className={`  ${
               this.state.navDisplay ? 'navDisplay' : 'navLinkContainer'
             }`}
           >
             <button>
-              {' '}
               <Link to="/">
                 <strong>Home</strong>
               </Link>
@@ -71,7 +68,6 @@ class Navbar extends React.Component {
             )) || (
               <>
                 <button>
-                  {' '}
                   <Link to="/sign-in">Sign In</Link>
                 </button>
                 <button>

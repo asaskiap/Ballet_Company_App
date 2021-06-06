@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { createComment } from '../services/comments';
 import './comments.scss';
 import SingleComment from './SingleComment';
+
+
 export class Comments extends Component {
   state = {
     comment: ''

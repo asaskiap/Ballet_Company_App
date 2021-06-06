@@ -54,7 +54,10 @@ export class SingleAnnouncement extends Component {
           />{' '}
           | {a.editDate.split('T')[0]}
         </small>
-        <button onClick={this.toggleComments} className="ToggleCommentsBtn">
+        {
+          this.props.user && 
+          <>
+          <button onClick={this.toggleComments} className="ToggleCommentsBtn">
           Show Comments
         </button>
         {this.state.displayComments && (
@@ -65,6 +68,9 @@ export class SingleAnnouncement extends Component {
             user={this.props.user}
           ></Comments>
         )}
+          </>
+        }
+        
       </div>
     );
   }

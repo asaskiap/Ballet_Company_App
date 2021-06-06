@@ -5,9 +5,6 @@ const { Router } = require('express');
 
 const Announcement = require('./../models/announcement');
 const Comment = require('../models/comments');
-
-const routeGuard = require('./../middleware/route-guard');
-
 const router = new Router();
 
 // list comments for one specific announcement
