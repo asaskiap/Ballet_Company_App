@@ -17,6 +17,7 @@ router.get('/load/:id', async(req, res, next) => {
         const comments = await Comment.find({
             announcement: announcement
         }).populate('creator');
+        console.log(comments)
         comments.sort((a, b) =>
             a.editDate > b.editDate ? -1 : b.editDate > a.editDate ? 1 : 0
         );

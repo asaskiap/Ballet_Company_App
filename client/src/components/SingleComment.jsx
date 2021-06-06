@@ -5,12 +5,16 @@ import './comments.scss';
 export class SingleComment extends Component {
   state = {
     displayEditForm: false,
-    comment: ''
+    comment: '',
+    creatorName: '',
+    creatorId: null
   };
 
   componentDidMount() {
     this.setState({
-      comment: this.props.content.comment
+      comment: this.props.content.comment,
+      creatorName: this.props.content.creator.name,
+      creatorId: this.props.content.creator._id
     });
   }
 
@@ -47,15 +51,14 @@ export class SingleComment extends Component {
   };
 
   render() {
-    console.log(this.props.content,  this.props.content.creator.name)
 
     return (
       <div className="SingleComment">
-        {this.props.content.comment}{' '}
+        {this.state.comment}{' '}
         <small>
-          {console.log(this.props.content.creator.name)}
-          <i>{this.props.content.creator.name}</i>
-          {this.props.content.creator._id === this.props.user._id && (
+          {console.log(this.state.creatorName)}
+          <i>{this.state.creatorName}</i>
+          {this.props.state.creatorId === this.props.user._id && (
             <span className="CommentButtons">
               <button onClick={this.toggleEditForm}>Edit</button>
               <button
