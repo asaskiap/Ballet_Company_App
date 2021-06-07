@@ -13,10 +13,14 @@ export class SingleComment extends Component {
   componentDidMount() {
     this.setState({
       comment: this.props.content.comment,
-      creatorName: this.props.content.creator.name,
-      creatorId: this.props.content.creator._id
     });
-    console.log('in cdm', this.state, this.props)
+
+    if(this.props.content.creator){
+      this.setState({
+        creatorName: this.props.content.creator.name,
+        creatorId: this.props.content.creator._id
+      })
+    }
   }
 
   handleInputChange = (event) => {
@@ -38,10 +42,11 @@ export class SingleComment extends Component {
     const id = this.props.content._id;
     console.log(content, id);
     await editComment(id, { content });
-    this.setState({
-      comment: ''
-    });
+    
     await this.props.reloadComments();
+    this.setState({
+      comment: this.props.content.comment
+    });
     this.toggleEditForm();
   };
 
@@ -57,7 +62,6 @@ export class SingleComment extends Component {
       <div className="SingleComment">
         {this.state.comment}{' '}
         <small>
-          {console.log('in render', this.state.creatorName)}
           <i>{this.state.creatorName}</i>
           {this.state.creatorId === this.props.user._id && (
             <span className="CommentButtons">
