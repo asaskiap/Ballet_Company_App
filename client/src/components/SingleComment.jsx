@@ -16,6 +16,7 @@ export class SingleComment extends Component {
       creatorName: this.props.content.creator.name,
       creatorId: this.props.content.creator._id
     });
+    console.log('in cdm', this.state)
   }
 
   handleInputChange = (event) => {
@@ -56,7 +57,7 @@ export class SingleComment extends Component {
       <div className="SingleComment">
         {this.state.comment}{' '}
         <small>
-          {console.log(this.state.creatorName)}
+          {console.log('in render', this.state.creatorName)}
           <i>{this.state.creatorName}</i>
           {this.state.creatorId === this.props.user._id && (
             <span className="CommentButtons">
