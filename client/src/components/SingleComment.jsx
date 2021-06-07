@@ -13,14 +13,10 @@ export class SingleComment extends Component {
   componentDidMount() {
     this.setState({
       comment: this.props.content.comment,
-    });
-
-    if(this.props.content.creator){
-      this.setState({
         creatorName: this.props.content.creatorName,
         creatorId: this.props.content.creatorId
       })
-    }
+    
   }
 
   handleInputChange = (event) => {
