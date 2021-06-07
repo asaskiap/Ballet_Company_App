@@ -88,6 +88,7 @@ class EditProfile extends Component {
       shoe_size
     } = this.state;
 
+    const userRef = this.props.user._id
     const values = {
       name,
       email,
@@ -105,7 +106,8 @@ class EditProfile extends Component {
       ss_color,
       dress_size,
       sock_size,
-      shoe_size
+      shoe_size,
+      userRef
     };
 
     // if you want to send file to the back end with the request body, we cannot send a simple object but it must be an object with the type FormData

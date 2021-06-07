@@ -65,9 +65,12 @@ router.patch(
             ss_color,
             dress_size,
             sock_size,
-            shoe_size
+            shoe_size,
+            userRef
         } = req.body;
-        const id = req.user._id;
+
+        const referencedUser = await User.findById(userRef);
+        const id = referencedUser._id;
 
         let picture;
         if (req.file) {
