@@ -47,6 +47,8 @@ class PointeShoeOrderForm extends Component {
       comments
     } = this.state;
 
+    const userRef = this.props.user._id
+
     await createOrder({
       item,
       color,
@@ -56,7 +58,8 @@ class PointeShoeOrderForm extends Component {
       size,
       width,
       quantity,
-      comments
+      comments,
+      userRef
     });
     //reset state of parent component to make order form disappear
     this.props.onOrderSubmission();

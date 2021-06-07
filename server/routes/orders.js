@@ -5,6 +5,7 @@ const { Router } = require('express');
 
 const routeGuard = require('./../middleware/route-guard');
 const Order = require('./../models/order');
+const User = require('./../models/user')
 
 const router = new Router();
 
@@ -98,10 +99,11 @@ router.post('/create', async(req, res, next) => {
         width,
         color,
         quantity,
-        comments
+        comments,
+        userRef
     } = req.body;
-    const creator = req.user;
-    const creator_name = req.user.name;
+    const creator = await User.findById(userRef); 
+    const creator_name = creator.name;
     try {
         const order = await Order.create({
             item,
