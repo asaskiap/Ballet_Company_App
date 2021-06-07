@@ -16,7 +16,7 @@ export class SingleComment extends Component {
       creatorName: this.props.content.creator.name,
       creatorId: this.props.content.creator._id
     });
-    console.log('in cdm', this.state)
+    console.log('in cdm', this.state, this.props)
   }
 
   handleInputChange = (event) => {
