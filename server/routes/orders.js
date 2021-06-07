@@ -3,7 +3,6 @@
 
 const { Router } = require('express');
 
-const routeGuard = require('./../middleware/route-guard');
 const Order = require('./../models/order');
 const User = require('./../models/user')
 

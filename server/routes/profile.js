@@ -3,7 +3,6 @@
 
 const express = require('express');
 const router = new express.Router();
-const routeGuard = require('./../middleware/route-guard');
 const fileUploadMiddleware = require('./../middleware/file-upload');
 const bcryptjs = require('bcryptjs');
 
@@ -48,7 +47,6 @@ router.get('/:id/announcements', async(req, res, next) => {
 
 router.patch(
     '/:id/edit',
-    routeGuard,
     fileUploadMiddleware.single('picture'),
     async(req, res, next) => {
         const {
