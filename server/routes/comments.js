@@ -32,16 +32,15 @@ router.get('/load/:id', async(req, res, next) => {
 
 //create comment
 router.post('/', async (req, res, next) => {
-    const { content, ref } = req.body;
-    const creator = req.user;
-    console.log(creator, content, ref)
+    const { content, creatorName, creatorId, ref } = req.body;
   
     const announcement = await Announcement.findById(ref);
 
     try {
         const comment = await Comment.create({
             comment: content,
-            creator,
+            creatorName,
+            creatorId,
             announcement
         });
         res.json({ comment: comment });

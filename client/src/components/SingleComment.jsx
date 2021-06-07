@@ -17,8 +17,8 @@ export class SingleComment extends Component {
 
     if(this.props.content.creator){
       this.setState({
-        creatorName: this.props.content.creator.name,
-        creatorId: this.props.content.creator._id
+        creatorName: this.props.content.creatorName,
+        creatorId: this.props.content.creatorId
       })
     }
   }

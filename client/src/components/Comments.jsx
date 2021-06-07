@@ -12,9 +12,11 @@ export class Comments extends Component {
   createComment = async (event) => {
     event.preventDefault();
     const content = this.state.comment;
+    const creatorName = this.props.user.name; 
+    const creatorId = this.props.user._id
     //refer to announcement you are commenting on
     const ref = this.props.announcement_id;
-    await createComment({ content, ref });
+    await createComment({ content, creatorName, creatorId, ref });
     this.setState({
       comment: ''
     });

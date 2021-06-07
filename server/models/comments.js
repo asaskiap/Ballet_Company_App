@@ -10,9 +10,11 @@ const schema = new mongoose.Schema({
         trim: true,
         required: true
     },
-    creator: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
+    creatorName: {
+        type: String
+    },
+    creatorId: {
+        type: String
     },
     announcement: {
         type: mongoose.Schema.Types.ObjectId,
